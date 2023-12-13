@@ -4,11 +4,12 @@ import Banner from "../components/banner";
 import { StyleSheet, View } from "react-native";
 import Enjoy from "../components/cools";
 import FooterHome from "../components/footerhome";
+import { Navigation } from "react-router-dom";
 
-export default function HomePage() {
+export default function HomePage({navigation}) {
     return (
         <View style={styles.mainc}>
-            <Header />
+            <Header outHome={navigation}/>
             <Banner />
             <Enjoy />
             <FooterHome />
@@ -18,7 +19,6 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
     mainc: {
-        display: 'flex',
-        flexDirection: 'column'
+        maxWidth: 900
     }
 })
