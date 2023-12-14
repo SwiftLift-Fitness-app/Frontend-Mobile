@@ -29,7 +29,8 @@ export const style = StyleSheet.create({
     yaw: {
         position: 'absolute',
         top: 60,
-        left: 30
+        left: 30,
+        zIndex: 990
     },
     yajb: {
         backgroundColor: '#02061c',
@@ -39,7 +40,10 @@ export const style = StyleSheet.create({
         marginTop: 15,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: 'relative',
+        elevation: 99,
+        zIndex: 99
     },
     btntext: {
         color: 'white',

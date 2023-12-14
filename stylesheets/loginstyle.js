@@ -30,7 +30,8 @@ export const style = StyleSheet.create({
         width: '70vw',
         height: 30,
         borderRadius: 5,
-        marginTop: 15
+        marginTop: 15,
+        paddingLeft: 10
     },
     logbtn: {
         width: '70vw',
@@ -68,7 +69,7 @@ export const style = StyleSheet.create({
     logbtng: {
         width: '7vh',
         height: '7vh',
-        backgroundColor: 'red',
+        backgroundColor: '#e04c3e',
         borderRadius: 5,
         display: 'flex',
         alignItems: 'center',
@@ -78,7 +79,7 @@ export const style = StyleSheet.create({
     logbtnf: {
         width: '7vh',
         height: '7vh',
-        backgroundColor: 'blue',
+        backgroundColor: '#5179bd',
         borderRadius: 5,
         display: 'flex',
         alignItems: 'center',
@@ -88,7 +89,7 @@ export const style = StyleSheet.create({
     logbtnm: {
         width: '7vh',
         height: '7vh',
-        backgroundColor: 'purple',
+        backgroundColor: '#a772c1',
         borderRadius: 5,
         display: 'flex',
         alignItems: 'center',

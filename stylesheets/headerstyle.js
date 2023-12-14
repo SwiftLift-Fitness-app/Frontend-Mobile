@@ -36,5 +36,8 @@ export const style = StyleSheet.create({
         width: '50%',
         height: '50%'
     },
-
+    usericon: {
+        width: '6vh',
+        height: '6vh'
+    }
 })

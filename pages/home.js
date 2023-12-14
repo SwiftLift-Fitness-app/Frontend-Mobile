@@ -10,7 +10,7 @@ export default function HomePage({navigation}) {
     return (
         <View style={styles.mainc}>
             <Header outHome={navigation}/>
-            <Banner />
+            <Banner outHome={navigation}/>
             <Enjoy />
             <FooterHome />
         </View>
