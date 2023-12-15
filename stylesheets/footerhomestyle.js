@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { DimensionValue, StyleSheet } from "react-native";
 
-export const style = StyleSheet.create({
+export const style =  StyleSheet.create({
     container: {
         backgroundColor: '#0c0f2d',
         width: '100vw',
