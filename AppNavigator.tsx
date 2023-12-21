@@ -5,6 +5,7 @@ import Login from './pages/login';
 import Results from './pages/results';
 import SignUp from './pages/signup';
 import Index from './pages/uindex';
+import Stats from './pages/stats';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default function AppNavigator() {
             <Stack.Screen name='Results' component={Results} options={{headerShown: false}}/>
             <Stack.Screen name='Signup' component={SignUp} options={{headerShown: false}}/>
             <Stack.Screen name='Index' component={Index} options={{headerShown: false}}/>
+            <Stack.Screen name='Stats' component={Stats} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }

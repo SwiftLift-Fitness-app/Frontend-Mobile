@@ -7,7 +7,8 @@ export const style = StyleSheet.create({
         height: 250,
         backgroundColor: '#152238',
         borderRadius: 10,
-        display: 'flex'
+        display: 'flex',
+        padding: 10
     },
     title: {
         color: 'white',
