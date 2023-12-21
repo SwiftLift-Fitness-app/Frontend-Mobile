@@ -4,7 +4,7 @@ import { TextInput, View, Text, ImageBackground, Pressable } from "react-native"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faGoogle, faFacebook, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 
-export default function SignUp({navigation}) {
+export default function SignUp({navigation} : any) {
     return (
         <View style={style.body}>
             <ImageBackground source={require('../img/wavec.png')} style={style.backi}>

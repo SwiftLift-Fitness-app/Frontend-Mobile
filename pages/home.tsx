@@ -6,7 +6,7 @@ import Enjoy from "../components/cools";
 import FooterHome from "../components/footerhome";
 import { Navigation } from "react-router-dom";
 
-export default function HomePage({navigation}) {
+export default function HomePage({navigation} : any) {
     return (
         <View style={styles.mainc}>
             <Header outHome={navigation}/>
