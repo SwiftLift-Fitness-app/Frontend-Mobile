@@ -6,7 +6,6 @@ export default function WeekDays({days} : any) {
 
     const style = StyleSheet.create({
         container: {
-            width: 140,
             height: 20,
             display: 'flex',
             flexDirection: 'row',
@@ -18,15 +17,17 @@ export default function WeekDays({days} : any) {
             backgroundColor: 'gray',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            borderRadius: 3
         },
         active_day: {
             width: 20,
             height: 20,
-            backgroundColor: 'red',
+            backgroundColor: '#e04c3e',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            borderRadius: 3
         },
         textC: {
             color: 'white'

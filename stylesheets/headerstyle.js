@@ -12,7 +12,8 @@ export const style = StyleSheet.create({
         flexDirection: 'row',
         boxSizing: 'border-box',
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        position: 'relative'
     },
     logo: {
         width: '5vh',

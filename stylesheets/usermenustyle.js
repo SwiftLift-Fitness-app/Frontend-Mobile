@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
         borderBottomWidth: '1px',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     textColor: {
         color: 'white',

@@ -19,11 +19,11 @@ export default function IndexHeader({menu, showMenu, changeMenu}) {
     
     return (
         <View style={style.header}>
-            <Image source={require('../img/logo-dark.png')} style={[style.logo]}></Image>
-            <Image source={require('../img/logo-text.png')} style={[style.titletext]}></Image>
+            <Image source={require('../img/logo-dark.png')} style={style.logo}></Image>
+            <Image source={require('../img/logo-text.png')} style={style.titletext}></Image>
             
             <Pressable onPress={() => { changeMenu() }}>
-                <Image source={require('../img/default-user-icon.png')} style={[style.usericon]}/>
+                <Image source={require('../img/default-user-icon.png')} style={style.usericon}/>
             </Pressable>
             <UserMenu isVisible={showMenu} menu={menu}/>
         </View>
