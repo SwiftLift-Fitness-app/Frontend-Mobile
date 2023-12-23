@@ -1,19 +1,22 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 export const style = StyleSheet.create({
     contain: {
-        width: '100vw',
-        height: '50vh'
+        width: screenWidth,
+        height: 0.5*screenHeight
     },
     wrapper: {
-        width: '100vw',
-        height: '50vh',
+        width: screenWidth,
+        height: 0.5*screenHeight,
         boxSizing: 'border-box'
     },
     backi: {
-        width: '100vw',
-        height: '50vh',
+        width: screenWidth,
+        height: 0.5*screenHeight,
         opacity: 0.1,
         display: 'flex',
         alignItems: 'center'

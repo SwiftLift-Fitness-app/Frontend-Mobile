@@ -8,10 +8,25 @@ export const style = StyleSheet.create({
         backgroundColor: '#152238',
         borderRadius: 10,
         display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         padding: 10
     },
     title: {
         color: 'white',
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'left'
+    },
+    cardimage: {
+        width: 250,
+        height: 100,
+        borderRadius: 10,
+        marginLeft: -5,
+        marginTop: -10
+    },
+    desc: {
+        color: 'white',
+        fontSize: 15
     }
 })

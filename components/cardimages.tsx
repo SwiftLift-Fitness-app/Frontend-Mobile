@@ -1,12 +1,18 @@
 import React from "react";
 import { Image, ImageBackground } from "react-native";
 import { Text } from "react-native";
+import { style } from "../stylesheets/exercisecardstyle";
+import { Dimensions } from "react-native";
 
 export default function Images({images} : any) {
+
+    const screenWidth = Dimensions.get('window').width;
+    const screenHeight = Dimensions.get('window').height;
+
     let imagesComp : Array<Element> = []
 
     for(let i=0; i<images.length; i++) {
-        imagesComp.push(<Image key={i} source={images[i]} style={{width: 100, height: 100}}/>)
+        imagesComp.push(<Image key={i} source={images[i]} style={style.cardimage}/>)
     }
 
     imagesComp.map((img : Element) => {
@@ -15,5 +21,4 @@ export default function Images({images} : any) {
         return <>{img}</>
     })
     return <>{imagesComp}</>
-    return <Text style={{color: 'white'}}>DOESNT WORRRKKK</Text>
 }
