@@ -3,6 +3,7 @@ import IndexHeader from "../components/indexheader";
 import { TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 
+
 export default function Stats({navigation} : any) {
 
     const [isMenuVisible, setMenuVisibility] = useState(false);
