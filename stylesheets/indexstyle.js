@@ -21,5 +21,10 @@ export const style = StyleSheet.create({
         fontFamily: 'ProDunex',
         marginLeft: 15,
         marginBottom: 15
+    },
+    tab_wrapper: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })

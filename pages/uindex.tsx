@@ -8,6 +8,8 @@ import PageTitle from "../components/pagetitle";
 import { useFonts } from "expo-font";
 import Switch from "../components/switch";
 import DietCard from "../components/dietcard";
+import DietTab from "../components/indextab";
+import ExerciseTab from "../components/trainingtab";
 
 export default function Index({navigation} : any) {
 
@@ -45,22 +47,11 @@ export default function Index({navigation} : any) {
             <TouchableOpacity style={[style.main]} onPress={changeMenuVisibilityWhenUnFocus}>
                 <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
                 <PageTitle text='Welcome again'></PageTitle>
-                <View>
-                    <Text style={style.slider_title}>Exercises for today ({dayWeek})</Text>
-                    <View style={style.slider}>
-                        <Switch type='left'/>
-                        <ExerciseCard></ExerciseCard>
-                        <Switch type='right'/>
-                    </View>
+                <View style={style.tab_wrapper}>
+                    <DietTab progress={81}></DietTab>
+                    <ExerciseTab></ExerciseTab>
                 </View>
-                <View>
-                    <Text style={style.slider_title}>Diets for today ({dayWeek})</Text>
-                    <View style={style.slider}>
-                        <Switch type='left'/>
-                        <DietCard></DietCard>
-                        <Switch type='right'/>
-                    </View>
-                </View>
+                
             </TouchableOpacity>
         )
     }
