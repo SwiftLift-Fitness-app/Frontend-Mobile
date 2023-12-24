@@ -46,7 +46,7 @@ export default function DietTab({progress, meals} : any) {
         },
         table_frow: {
             width: 0.875*vw,
-            height: 0.07*vh,
+            height: 0.05*vh,
             backgroundColor: '#1c1c1c',
             display: 'flex',
             flexDirection: 'row',
@@ -66,7 +66,8 @@ export default function DietTab({progress, meals} : any) {
         },
         white_text: {
             color: 'white',
-            fontFamily: 'Ubuntu'
+            fontFamily: 'Ubuntu',
+            fontSize: 16
         },
         buttons: {
             width: 0.875*vw,
@@ -140,8 +141,8 @@ export default function DietTab({progress, meals} : any) {
                 </View>
             </View>
             <View style={style.buttons}>
-                <Pressable style={style.end_btn}>Add meal</Pressable>
-                <Pressable style={style.end_btn}>View more</Pressable>
+                <Pressable style={style.end_btn}><Text style={style.white_text}>Add meal</Text></Pressable>
+                <Pressable style={style.end_btn}><Text style={style.white_text}>View more</Text></Pressable>
             </View>
         </View>
     )

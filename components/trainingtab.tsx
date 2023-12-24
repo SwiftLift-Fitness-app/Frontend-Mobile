@@ -32,6 +32,7 @@ export default function ExerciseTab() {
       padding: 10,
       borderRadius: 10,
       marginBottom: 10,
+      height: 0.05*vh
     },
     exerciseName: {
       color: 'white',
@@ -44,7 +45,7 @@ export default function ExerciseTab() {
       backgroundColor: '#4461ae',
       borderRadius: 10,
       padding: 10,
-      marginTop: 20,
+      marginTop: 10,
     },
     buttonText: {
       color: 'white',

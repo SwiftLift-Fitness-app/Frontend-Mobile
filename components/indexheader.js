@@ -25,7 +25,6 @@ export default function IndexHeader({menu, showMenu, changeMenu}) {
             <Pressable onPress={() => { changeMenu() }}>
                 <Image source={require('../img/default-user-icon.png')} style={style.usericon}/>
             </Pressable>
-            <UserMenu isVisible={showMenu} menu={menu}/>
         </View>
     )
 }

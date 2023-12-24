@@ -10,6 +10,7 @@ import Switch from "../components/switch";
 import DietCard from "../components/dietcard";
 import DietTab from "../components/indextab";
 import ExerciseTab from "../components/trainingtab";
+import UserMenu from "../components/usermenu";
 
 export default function Index({navigation} : any) {
 
@@ -51,7 +52,7 @@ export default function Index({navigation} : any) {
                     <DietTab progress={81}></DietTab>
                     <ExerciseTab></ExerciseTab>
                 </View>
-                
+                <UserMenu isVisible={isMenuVisible} menu={navigation}/>
             </TouchableOpacity>
         )
     }
