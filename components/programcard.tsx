@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { StyleSheet, Dimensions } from "react-native";
+import PlayButton from "./playbutton";
 
 export default function ProgramCard() {
 
@@ -41,7 +42,7 @@ export default function ProgramCard() {
     return (
         <Pressable style={styles.container} >
             <Text style={styles.top_bar}>My first workout</Text>
-            <Text>Hi</Text>
+            <PlayButton size={1.5}/>
         </Pressable>
     )
 }

@@ -34,6 +34,7 @@
     "react-native-svg": "^14.1.0",
     "react-native-svg-uri": "^1.2.3",
     "react-native-web": "^0.19.9",
+    "react-navigation": "^5.0.0",
     "react-router-dom": "^6.20.1",
     "router-react-native": "^1.0.8"
   },

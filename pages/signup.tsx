@@ -5,13 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faGoogle, faFacebook, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 
 export default function SignUp({navigation} : any) {
+
+    function sendData() {
+
+    }
     return (
         <View style={style.body}>
             <ImageBackground source={require('../img/wavec.png')} style={style.backi}>
                 <Text style={style.signlabel}>Create new account</Text>
             </ImageBackground>
             <View style={style.dummy}>
-                <TextInput placeholder="Choose a username" style={style.textbox}></TextInput>
+                <TextInput id='name' placeholder="Choose a username" style={style.textbox}></TextInput>
                 <TextInput placeholder="Enter your email" style={style.textbox}></TextInput>
                 <TextInput placeholder="Enter password" style={style.textbox}></TextInput>
                 <Pressable style={style.logbtn}><Text style={style.whitetext}>Sign Up</Text></Pressable>
