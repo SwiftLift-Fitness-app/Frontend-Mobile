@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faFacebook, faGoogle, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 import { useState, useEffect } from "react";
 
-export default function Login({navigation}) {
+export default function Login({navigation} : any) {
 
     const [isLogged, setIsLogged] = useState(false);
     

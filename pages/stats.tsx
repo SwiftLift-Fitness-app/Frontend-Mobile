@@ -2,7 +2,7 @@ import React from "react";
 import IndexHeader from "../components/indexheader";
 import { TouchableOpacity, View } from "react-native";
 import { useState } from "react";
-
+import UserMenu from "../components/usermenu";
 
 export default function Stats({navigation} : any) {
 
@@ -19,6 +19,7 @@ export default function Stats({navigation} : any) {
     return (
         <TouchableOpacity onPress={changeMenuVisibilityWhenUnFocus}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility} />
+            <UserMenu isVisible={isMenuVisible} menu={navigation}/>
         </TouchableOpacity>
     )
 }

@@ -11,7 +11,7 @@ export default function UserMenu({isVisible, menu} : any) {
                     <Pressable style={style.option}>
                         <Text style={style.textColor}>Profile</Text>
                     </Pressable>
-                    <Pressable style={style.option}>
+                    <Pressable style={style.option} onPress={() => {menu.navigate('Programs')}}>
                         <Text style={style.textColor}>Programs</Text>
                     </Pressable>
                     <Pressable style={style.option}>
