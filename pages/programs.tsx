@@ -5,6 +5,7 @@ import { useState } from 'react';
 import UserMenu from '../components/usermenu';
 import { Use } from 'react-native-svg';
 import { style } from '../stylesheets/programsstyle';
+import ProgramCard from '../components/programcard';
 
 export default function Programs({navigation} : any) {
 
@@ -22,6 +23,7 @@ export default function Programs({navigation} : any) {
     return (
         <TouchableOpacity onPress={changeMenuVisibilityWhenUnFocus} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
+            <ProgramCard/>
             <UserMenu isVisible={isMenuVisible} menu={navigation}/>
         </TouchableOpacity>
     )
