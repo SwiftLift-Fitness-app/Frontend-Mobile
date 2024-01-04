@@ -1,17 +1,21 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+const width = '100%';
+
+const vw = Dimensions.get('window').width;
+const vh = Dimensions.get('window').height;
+const imgw = '60%';
 
 export const style = StyleSheet.create({
     container: {
-        width: 250,
-        height: 250,
-        backgroundColor: '#152238',
+        width: 0.875*vw,
         borderRadius: 10,
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
-        padding: 10
+        padding: 20
     },
     title: {
         color: 'white',
@@ -19,11 +23,8 @@ export const style = StyleSheet.create({
         textAlign: 'left'
     },
     cardimage: {
-        width: 250,
-        height: 100,
-        borderRadius: 10,
-        marginLeft: -5,
-        marginTop: -10
+        width: 95,
+        height: 70
     },
     desc: {
         color: 'white',

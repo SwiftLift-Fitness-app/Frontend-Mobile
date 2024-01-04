@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ImageBackground } from "react-native";
+import { Image, ImageBackground, View } from "react-native";
 import { Text } from "react-native";
 import { style } from "../stylesheets/exercisecardstyle";
 import { Dimensions } from "react-native";

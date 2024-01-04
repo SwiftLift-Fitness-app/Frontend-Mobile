@@ -2,7 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 
-export default function WeekDays({days} : any) {
+interface Days {
+    days : Array<boolean>
+}
+
+export default function WeekDays({days} : Days) {
+
 
     const style = StyleSheet.create({
         container: {
