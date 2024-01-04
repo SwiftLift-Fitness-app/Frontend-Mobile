@@ -50,7 +50,7 @@ export default function Index({navigation} : any) {
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
                     <DietTab progress={81}></DietTab>
-                    <ExerciseTab></ExerciseTab>
+                    <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>
             </TouchableOpacity>

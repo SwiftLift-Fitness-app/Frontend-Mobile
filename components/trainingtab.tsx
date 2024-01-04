@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable, Dimensions } from "react-native";
 import WeekDays from "./weekdaystray";
 
-export default function ExerciseTab() {
+export default function ExerciseTab({navigation} : any) {
 
 
     const vw = Dimensions.get('window').width;
@@ -85,7 +85,7 @@ export default function ExerciseTab() {
         </View>
       ))}
       <WeekDays days={[true, false, true, true, false, false, true]}></WeekDays>
-      <Pressable style={styles.addExerciseButton}>
+      <Pressable style={styles.addExerciseButton} onPress={() => {navigation.navigate('Programs')}}>
         <Text style={styles.buttonText}>Go to your Program</Text>
       </Pressable>
     </View>

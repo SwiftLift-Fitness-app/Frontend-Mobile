@@ -8,13 +8,13 @@ export default function UserMenu({isVisible, menu} : any) {
     if(isVisible) {
         return (
                 <View style={style.content}>
-                    <Pressable style={style.option}>
+                <Pressable style={style.option} onPress={() => {menu.navigate('Index')}}>
                         <Text style={style.textColor}>Profile</Text>
                     </Pressable>
                     <Pressable style={style.option} onPress={() => {menu.navigate('Programs')}}>
                         <Text style={style.textColor}>Programs</Text>
                     </Pressable>
-                    <Pressable style={style.option}>
+                    <Pressable style={style.option} onPress={() => {menu.navigate('Survey')}}>
                         <Text style={style.textColor}>Diets</Text>
                     </Pressable>
                     <Pressable style={style.option} onPress={() => {menu.navigate('Stats')}}>
