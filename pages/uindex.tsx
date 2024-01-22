@@ -11,6 +11,7 @@ import DietCard from "../components/dietcard";
 import DietTab from "../components/indextab";
 import ExerciseTab from "../components/trainingtab";
 import UserMenu from "../components/usermenu";
+import NavBar from "../components/navbar";
 
 export default function Index({navigation} : any) {
 
@@ -53,6 +54,7 @@ export default function Index({navigation} : any) {
                     <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>
+                <NavBar/>
             </TouchableOpacity>
         )
     }
