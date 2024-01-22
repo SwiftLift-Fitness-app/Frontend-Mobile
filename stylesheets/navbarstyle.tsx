@@ -36,4 +36,34 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 50
     },
+    circles_wrapper: {
+        position: 'absolute',
+        bottom: 55,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'flex-end',
+        height: 75,
+        width: vw
+    },
+    circle_diets: {
+        height: 55,
+        width: 55,
+        borderRadius: 50,
+        backgroundColor: 'gray',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    circle_progs: {
+        height: 75,
+        width: 75,
+        borderRadius: 50,
+        backgroundColor: 'gray',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10
+    }
+
 })

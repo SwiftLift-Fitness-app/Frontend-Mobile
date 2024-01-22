@@ -2,16 +2,14 @@ import IndexHeader from "../components/indexheader";
 import { useState, useEffect } from "react";
 import { View, TouchableOpacity, TouchableWithoutFeedback, ScrollView } from "react-native";
 import { style } from "../stylesheets/indexstyle";
-import { Text } from "react-native";
 import ExerciseCard from "../components/trainingexercisecard";
 import PageTitle from "../components/pagetitle";
 import { useFonts } from "expo-font";
-import Switch from "../components/switch";
-import DietCard from "../components/dietcard";
 import DietTab from "../components/indextab";
 import ExerciseTab from "../components/trainingtab";
 import UserMenu from "../components/usermenu";
 import NavBar from "../components/navbar";
+import Circles from "../components/circles";
 
 export default function Index({navigation} : any) {
 
@@ -31,6 +29,7 @@ export default function Index({navigation} : any) {
     const [isLogged, setIsLogged] = useState(true);
 
     const [isMenuVisible, setMenuVisibility] = useState(false);
+    const [isCirclesVisible, setCirclesVisibility] = useState(false);
 
     function changeMenuVisibility() {
         setMenuVisibility(!isMenuVisible)
@@ -40,13 +39,21 @@ export default function Index({navigation} : any) {
         setMenuVisibility(false)
     }
 
+    function changeCirclesVisibility() {
+        setCirclesVisibility(!isCirclesVisible)
+    }
+
+    function changeCirclesVisibilityWhenUnfocused() {
+        setCirclesVisibility(false);
+    }
+
     const [loadedfonts] = useFonts({
         'ProDunex' : require('../assets/fonts/ProDunex/pro-dunex-52272284/Pro-Dunex-Regular.otf')
     });
 
     if(isLogged) {
         return (
-            <TouchableOpacity style={[style.main]} onPress={changeMenuVisibilityWhenUnFocus}>
+            <TouchableOpacity style={[style.main]} onPress={() => {changeMenuVisibilityWhenUnFocus(); changeCirclesVisibilityWhenUnfocused}}>
                 <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
@@ -54,7 +61,8 @@ export default function Index({navigation} : any) {
                     <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>
-                <NavBar/>
+                <NavBar setVisibility={setCirclesVisibility}/>
+                <Circles visible={isCirclesVisible}/>               
             </TouchableOpacity>
         )
     }

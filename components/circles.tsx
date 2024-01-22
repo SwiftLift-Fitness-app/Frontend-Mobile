@@ -1,16 +1,30 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { useState } from "react";
+import { style } from "../stylesheets/navbarstyle";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faApple } from "@fortawesome/free-brands-svg-icons";
+import { faDumbbell, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
-export default function Circles() {
+interface VisibilityProp {
+    visible: boolean
+}
 
-    const [isVisible, setVisibility] = useState(false);
-    return (
-        <View id="wrapper">
-            <View id="circle-diets">
+export default function Circles({visible} : VisibilityProp) {
+
+    if(visible) {
+        return (
+            <View id="wrapper" style={style.circles_wrapper}>
+                <Pressable id="circle-diets" style={style.circle_diets}>
+                    <FontAwesomeIcon icon={faApple} color='white' size={30}></FontAwesomeIcon>
+                </Pressable>
+                <Pressable id="circle-programs" style={style.circle_progs}>
+                    <FontAwesomeIcon icon={faDumbbell} color='white' size={35}></FontAwesomeIcon>
+                </Pressable>
+                <Pressable id="circle-forum" style={style.circle_diets}>
+                    <FontAwesomeIcon icon={faPaperPlane} color="white" size={30}></FontAwesomeIcon>
+                </Pressable>
             </View>
-            <View id="circle-programs"></View>
-            <View id="circle-forum"></View>
-        </View>
-    )
+        )
+    }
 }
