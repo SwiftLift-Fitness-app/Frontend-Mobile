@@ -19,7 +19,7 @@ export default function Circles({visible, menu} : VisibilityProp) {
     if(visible) {
         return (
             <View id="wrapper" style={style.circles_wrapper}>
-                <Pressable id="circle-diets" style={style.circle_diets} >
+                <Pressable id="circle-diets" style={style.circle_diets} onPress={() => {menu.navigate('Diets')}}>
                     <FontAwesomeIcon icon={faApple} color='white' size={30}></FontAwesomeIcon>
                 </Pressable>
                 <Pressable id="circle-programs" style={style.circle_progs} onPress={() => {menu.navigate('Programs')}}>
