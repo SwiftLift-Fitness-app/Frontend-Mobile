@@ -22,9 +22,9 @@ export default function IndexHeader({menu, showMenu, changeMenu}) {
             <Image source={require('../img/logo-dark.png')} style={style.logo}></Image>
             <Image source={require('../img/logo-text.png')} style={style.titletext}></Image>
             
-            <Pressable onPress={() => { changeMenu() }}>
+            <Pressable onPress={() => { changeMenu() }} style={{display: 'none'}}>
                 <Image source={require('../img/default-user-icon.png')} style={style.usericon}/>
-            </Pressable>
+                </Pressable> */ 
         </View>
     )
 }

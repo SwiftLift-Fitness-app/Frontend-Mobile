@@ -38,7 +38,7 @@ export const style = StyleSheet.create({
     },
     circles_wrapper: {
         position: 'absolute',
-        bottom: 55,
+        bottom: 75,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',

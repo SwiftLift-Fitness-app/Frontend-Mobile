@@ -1,6 +1,6 @@
 import IndexHeader from "../components/indexheader";
 import { useState, useEffect } from "react";
-import { View, TouchableOpacity, TouchableWithoutFeedback, ScrollView } from "react-native";
+import { View, TouchableOpacity, TouchableWithoutFeedback, ScrollView, StyleSheet } from "react-native";
 import { style } from "../stylesheets/indexstyle";
 import ExerciseCard from "../components/trainingexercisecard";
 import PageTitle from "../components/pagetitle";
@@ -10,6 +10,7 @@ import ExerciseTab from "../components/trainingtab";
 import UserMenu from "../components/usermenu";
 import NavBar from "../components/navbar";
 import Circles from "../components/circles";
+//import { BlurView } from "@react-native-community/blur";
 
 export default function Index({navigation} : any) {
 
@@ -51,9 +52,18 @@ export default function Index({navigation} : any) {
         'ProDunex' : require('../assets/fonts/ProDunex/pro-dunex-52272284/Pro-Dunex-Regular.otf')
     });
 
+    const blurStyle = StyleSheet.create({
+        blur: {
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
+        }
+    })
     if(isLogged) {
         return (
-            <TouchableOpacity style={[style.main]} onPress={() => {changeMenuVisibilityWhenUnFocus(); changeCirclesVisibilityWhenUnfocused}}>
+            <TouchableOpacity style={[style.main]} onPress={changeCirclesVisibilityWhenUnfocused}>
                 <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
@@ -61,8 +71,8 @@ export default function Index({navigation} : any) {
                     <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>
-                <NavBar setVisibility={setCirclesVisibility}/>
-                <Circles visible={isCirclesVisible}/>               
+                <NavBar setVisibility={changeCirclesVisibility} menu={navigation}/>
+                <Circles visible={isCirclesVisible} menu={navigation}/>                    
             </TouchableOpacity>
         )
     }

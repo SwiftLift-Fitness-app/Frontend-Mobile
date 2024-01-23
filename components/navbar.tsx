@@ -7,15 +7,15 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { style } from "../stylesheets/navbarstyle";
 
 /*interface SetVisibilityProp {
-    setVisibility: (event : GestureResponderEvent)
+    setVisibility: 
 } */
 
-export default function NavBar({setVisibility} : any) {
+export default function NavBar({setVisibility, menu} : any) {
 
 
     return (
         <View id="wrapper" style={style.wrapper}>
-            <Pressable id="home-button" style={style.homebtn}>
+            <Pressable id="home-button" style={style.homebtn} onPress={() => {menu.navigate('Index')}}>
                 <FontAwesomeIcon icon={faHome} color="white" size={30}></FontAwesomeIcon>
             </Pressable>
             <Pressable id="circle" style={style.circle} onPress={setVisibility}>
