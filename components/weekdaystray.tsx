@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 
 interface Days {
-    days : Array<boolean>
+    days : Array<Boolean>
 }
 
 export default function WeekDays({days} : Days) {

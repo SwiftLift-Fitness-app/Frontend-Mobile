@@ -10,6 +10,7 @@ import NavBar from '../components/navbar';
 import Circles from '../components/circles';
 import { StackNavigationProp } from '@react-navigation/stack';
 import ButtonPanel from '../components/buttonpanel';
+import CardSlider from '../components/cardslider';
 
 interface ProgramsProps {
     navigation: StackNavigationProp<any>
@@ -41,7 +42,7 @@ export default function Programs({navigation} : ProgramsProps) {
         <TouchableOpacity onPress={changeCirclesVisibilityWhenUnfocused} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
             <ButtonPanel/>
-            <ProgramCard/>
+            <CardSlider cards={[1,2,3]}></CardSlider>
             <UserMenu isVisible={isMenuVisible} menu={navigation}/>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
