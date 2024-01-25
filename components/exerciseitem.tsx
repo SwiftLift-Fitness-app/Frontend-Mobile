@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { Image } from "react-native";
 import MuscleGroups from "./musclegroups";
+import AddRemove from "./addremove";
 
 interface ExerciseItemProps {
     image : string,
@@ -18,6 +19,9 @@ export default function ExerciseItem({image, name, description, muscles} : Exerc
     const [sets, setSets] = useState(0);
     const [reps, setReps] = useState(0);
     const [weight, setWeight] = useState(0);
+    const [am1, setAm1] = useState(0);
+    const [am2, setAm2] = useState(0);
+    const [am3, setAm3] = useState(0);
 
     const style = StyleSheet.create({
         wrapper: {
@@ -44,6 +48,10 @@ export default function ExerciseItem({image, name, description, muscles} : Exerc
             maxWidth: 150,
             display: 'flex',
             flexWrap: 'wrap'
+        },
+        addr_wrapper: {
+            height: 0.15*vw,
+
         }
     })
 
@@ -54,6 +62,11 @@ export default function ExerciseItem({image, name, description, muscles} : Exerc
                 <Text>{name}</Text>
                 <View style={style.tags_wrapper}>
                     <MuscleGroups muscles={muscles}/>
+                </View>
+                <View style={style.addr_wrapper}>
+                    <AddRemove amount={am1} setAmount={setAm1} label="Reps"/>
+                    <AddRemove amount={am2} setAmount={setAm2} label="Sets"/>
+                    <AddRemove amount={am3} setAmount={setAm3} label="Weight"/>
                 </View>
             </View>
         </View>

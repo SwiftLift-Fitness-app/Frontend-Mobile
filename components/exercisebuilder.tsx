@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import ExerciseItem from "./exerciseitem";
 
 export default function ExerciseBuilder() {
 
@@ -12,11 +13,13 @@ export default function ExerciseBuilder() {
         jsonData = JSON.parse(jsonData);
     })
 
-    
-    //localhost/
-    return (
-        <View>
-            
-        </View>
-    )
+    let exerciseItems : Array<Element> = [];
+
+    for(let i=0; i<10; i++) {
+        exerciseItems.push(<ExerciseItem image="/" name="name" description="desc" muscles={['']}/>)
+    }
+
+    exerciseItems.map(item => {
+        return <>{item}</>
+    })
 }
