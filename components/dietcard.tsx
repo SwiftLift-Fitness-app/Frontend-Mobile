@@ -21,12 +21,12 @@ export default function DietCard() {
         info : [1760, 60, 30, 10]
     };
 
-    fetch("http://localhost", {
+    /*fetch("http://localhost", {
         method: "GET"
     }).then(async (response: Response) => {
         jsonDataString = await response.text();
         jsonData = JSON.parse(jsonDataString);
-    })
+    }) */
 
     const vw : number = Dimensions.get('window').width;
     const vh : number = Dimensions.get('window').height;

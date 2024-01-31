@@ -3,8 +3,14 @@ import React from "react";
 import { StyleSheet, Dimensions, View, Pressable } from "react-native";
 import { faPlus, faMinus, faPlusMinus } from "@fortawesome/free-solid-svg-icons";
 import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-export default function ButtonPanel() {
+interface ButtonPanelProps {
+    navigation : StackNavigationProp<any>,
+    endpoint : string
+}
+
+export default function ButtonPanel({navigation, endpoint} : ButtonPanelProps) {
 
     const vw = Dimensions.get('window').width;
     
@@ -33,7 +39,7 @@ export default function ButtonPanel() {
 
     return (
         <View style={style.wrapper}>
-            <Pressable style={style.btn}>
+            <Pressable style={style.btn} onPress={() => {navigation.navigate(endpoint)}}>
                 <FontAwesomeIcon icon={faPlus} color="white" size={30}></FontAwesomeIcon>
             </Pressable>
             <Pressable style={style.btn}>

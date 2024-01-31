@@ -11,6 +11,7 @@ import Circles from '../components/circles';
 import { StackNavigationProp } from '@react-navigation/stack';
 import ButtonPanel from '../components/buttonpanel';
 import CardSlider from '../components/cardslider';
+import DietCard from '../components/dietcard';
 
 
 interface DietProps {
@@ -41,7 +42,9 @@ export default function Diets({navigation} : DietProps) {
     return (
         <TouchableOpacity onPress={changeCirclesVisibilityWhenUnfocused} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <ButtonPanel/>
+            <ButtonPanel navigation={navigation} endpoint='DietBuilder'/>
+            <DietCard></DietCard>
+            <CardSlider cards={<DietCard></DietCard>}/>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>

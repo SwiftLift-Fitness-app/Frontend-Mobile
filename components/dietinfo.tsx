@@ -34,8 +34,9 @@ export default function DietInfo({calories, protein, carbs, fat} : DietInfoProps
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            top: 300,
-            left: 100
+            top: 0,
+            left: 10,
+            zIndex: 99
         }
      })
 

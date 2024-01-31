@@ -41,7 +41,7 @@ export default function Programs({navigation} : ProgramsProps) {
     return (
         <TouchableOpacity onPress={changeCirclesVisibilityWhenUnfocused} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <ButtonPanel/>
+            <ButtonPanel navigation={navigation} endpoint='ExerciseBuilder'/>
             <CardSlider cards={[1,2,3]}></CardSlider>
             <UserMenu isVisible={isMenuVisible} menu={navigation}/>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>

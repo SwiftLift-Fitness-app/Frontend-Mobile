@@ -12,7 +12,7 @@ export default function Images({images} : any) {
     let imagesComp : Array<Element> = []
 
     for(let i=0; i<images.length; i++) {
-        imagesComp.push(<Image key={i} source={images[i]} style={style.cardimage}/>)
+        imagesComp.push(<Image width={50} height={50} key={i} source={{ uri : images[i] }} style={style.cardimage}/>)
     }
 
     imagesComp.map((img : Element) => {

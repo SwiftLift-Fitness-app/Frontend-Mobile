@@ -10,6 +10,8 @@ import Programs from './pages/programs';
 import SessionPage from './pages/trainingsession';
 import Survey from './pages/initialsurvey';
 import Diets from './pages/diets';
+import ExerciseBuilderPage from './pages/exercisebuilder';
+import DietBuilderPage from './pages/dietbuilder';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +28,8 @@ export default function AppNavigator() {
             <Stack.Screen name='Session' component={SessionPage}  options={{headerShown: false}}/>
             <Stack.Screen name='Survey' component={Survey}  options={{headerShown: false}}/>
             <Stack.Screen name='Diets' component={Diets} options={{headerShown: false}}/>
+            <Stack.Screen name='ExerciseBuilder' component={ExerciseBuilderPage} options={{headerShown: false}}/>
+            <Stack.Screen name='DietBuilder' component={DietBuilderPage} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }

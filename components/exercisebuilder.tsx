@@ -22,4 +22,5 @@ export default function ExerciseBuilder() {
     exerciseItems.map(item => {
         return <>{item}</>
     })
+    return <></>;
 }
