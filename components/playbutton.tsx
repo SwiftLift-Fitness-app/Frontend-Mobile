@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faPlay, faEdit, faFastForward} from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faEdit, faFastForward, faInfo} from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
     size: number,
@@ -43,6 +43,13 @@ export default function PlayButton({size, type} : Props) {
         return (
             <View style={styles.container}>
                 <FontAwesomeIcon icon={faFastForward} color="white" size={16*size}/>
+            </View>
+        )
+    }
+    else if (type === "info") {
+        return (
+            <View style={styles.container}>
+                <FontAwesomeIcon icon={faInfo} color="white" size={16*size}/>
             </View>
         )
     }

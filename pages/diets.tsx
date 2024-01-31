@@ -41,6 +41,7 @@ export default function Diets({navigation} : DietProps) {
     return (
         <TouchableOpacity onPress={changeCirclesVisibilityWhenUnfocused} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
+            <ButtonPanel/>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>
