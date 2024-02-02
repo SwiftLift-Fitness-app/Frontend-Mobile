@@ -12,14 +12,16 @@ export default function ProgressBar({prog} : Progress) {
 
     const growAnim : Animated.Value = useRef(new Animated.Value(prog)).current;
 
-    const [doesGrow, stimulateGrowth] = useState(false);
+    const [progress, setProgress] = useState(prog);
 
     const styles = StyleSheet.create({
         container: {
-            width: 0.9*vw,
+            width: vw,
             height: 0.04*vh,
-            borderRadius: 15,
-            backgroundColor: '#404040'
+            backgroundColor: '#404040',
+            position : 'absolute',
+            bottom : 0,
+            left : 0
         },
         bar: {
             backgroundColor: '#4461ae',
@@ -28,12 +30,13 @@ export default function ProgressBar({prog} : Progress) {
                 inputRange: [0, 100],
                 outputRange: ['0%', '100%'],
             }),
-            borderRadius: 15
+            borderTopEndRadius : 15,
+            borderBottomEndRadius : 15
         }
     })
 
     function testAnim() {
-        prog += 20;
+        prog += 33;
         Animated.timing(growAnim, {
             toValue: prog,
             duration: 500,
@@ -44,7 +47,7 @@ export default function ProgressBar({prog} : Progress) {
 
 
     return (
-        <Pressable style={styles.container} onPress={testAnim}>
+        <Pressable style={styles.container}>
             <Animated.View style={styles.bar}></Animated.View>
         </Pressable>
     )

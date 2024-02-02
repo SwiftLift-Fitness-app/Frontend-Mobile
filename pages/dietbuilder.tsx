@@ -6,6 +6,7 @@ import { StyleSheet, Dimensions, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import DietBuilder from "../components/dietbuilder";
+import BuilderWrapper from "../components/builderwrapper";
 
 const vw = Dimensions.get('screen').width;
 const vh = Dimensions.get('screen').height;
@@ -48,7 +49,7 @@ export default function DietBuilderPage({navigation} : DietBuilderPageProps) {
     return (
         <TouchableOpacity style={style.body}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <DietBuilder/>
+            <BuilderWrapper type="diet"></BuilderWrapper>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>

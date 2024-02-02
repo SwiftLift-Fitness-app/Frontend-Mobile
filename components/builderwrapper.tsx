@@ -1,7 +1,13 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+import DietBuilder from "./dietbuilder";
+import ExerciseBuilder from "./exercisebuilder";
 
-export default function BuilderWrapper() {
+interface BuilderWrapperProp {
+    type : string
+}
+
+export default function BuilderWrapper({type} : BuilderWrapperProp) {
 
     const vw = Dimensions.get('screen').width;
     const vh = Dimensions.get('screen').height;
@@ -9,14 +15,22 @@ export default function BuilderWrapper() {
     const style = StyleSheet.create({
         container : {
             width : vw,
-            height : 0.8*vh,
-            backgroundColor: 'black'
-        }
+            height : 0.875*vh,
+            backgroundColor : 'black'
+        },
     })
 
-    return (
-        <View style={style.container}>
-
-        </View>
-    )
+    if(type === "diet") {
+        return (
+            <View style={style.container}>
+                <DietBuilder/>
+            </View>
+        )
+    } else if (type === "exercise") {
+        return (
+            <View style={style.container}>
+                <ExerciseBuilder/>
+            </View>
+        )
+    }
 }

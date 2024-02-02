@@ -16,11 +16,11 @@ export default function ExerciseBuilder() {
     let exerciseItems : Array<Element> = [];
 
     for(let i=0; i<10; i++) {
-        exerciseItems.push(<ExerciseItem image="/" name="name" description="desc" muscles={['']}/>)
+        exerciseItems.push(<ExerciseItem key={i} image="/" name="name" description="desc" muscles={['']}/>)
     }
 
     exerciseItems.map(item => {
         return <>{item}</>
     })
-    return <></>;
+    return <>{exerciseItems}</>;
 }

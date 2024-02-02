@@ -14,6 +14,11 @@ interface DietBuilderJsonResponse {
 
 export default function DietItem({name, image, description, nutri_info} : DietBuilderJsonResponse) {
 
+    const style1 = StyleSheet.create({
+        makeFront : {
+            zIndex : 9999
+        }
+    })
 
     const vw = Dimensions.get('window').width;
     const vh = Dimensions.get('window').height;
@@ -21,8 +26,8 @@ export default function DietItem({name, image, description, nutri_info} : DietBu
     const [am1, setAm1] = useState(100);
 
     return (
-        <View style={style.wrapper}>
-            <Image source={require(image)} style={style.image}/>
+        <View style={[style.wrapper, style1.makeFront]}>
+            <Image source={{uri : image}} style={style.image}/>
             <View style={style.info}>
                 <Text>{name}</Text>
                 <View style={style.tags_wrapper}>
@@ -31,7 +36,6 @@ export default function DietItem({name, image, description, nutri_info} : DietBu
             </View>
             <View style={style.addr_wrapper}>
                 <AddRemove amount={am1} setAmount={setAm1} label="Amount"/>
-                <WeekDays days={[]}/>
             </View>
         </View>
     )

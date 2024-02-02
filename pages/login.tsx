@@ -17,7 +17,7 @@ export default function Login({navigation} : any) {
             <View style={style.dummy}>
                 <TextInput placeholder="Enter your email" style={style.textbox}></TextInput>
                 <TextInput placeholder="Enter password" style={style.textbox}></TextInput>
-                <Pressable style={style.logbtn} onPress={ async () => { /* await (implement log in system) navigation to index is just for testing the Index page */ navigation.navigate('Index')}}><Text style={style.whitetext}>Log In</Text></Pressable>
+                <Pressable style={style.logbtn} onPress={ async () => { /* await (implement log in system) navigation to index is just for testing the Index page */ navigation.navigate('Survey')}}><Text style={style.whitetext}>Log In</Text></Pressable>
                 <Text>Or</Text>
                 <View style={style.signfield}>
                     <Pressable style={style.logbtng}><FontAwesomeIcon icon={faGoogle} color="white" size={30}></FontAwesomeIcon></Pressable>

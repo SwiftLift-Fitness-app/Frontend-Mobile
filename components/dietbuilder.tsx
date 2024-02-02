@@ -35,11 +35,10 @@ export default function DietBuilder() {
     let dietItems : Array<Element> = [];
 
     for(let i=0; i<jsonData.diets.length; i++) {
-        dietItems.push(<DietItem name={jsonData.diets[i]['name']} image={jsonData.diets[i]['image']} description={jsonData.diets[i]['description']} nutri_info={jsonData.diets[i]['nutri_info']}/>)
+        dietItems.push(<DietItem key={i} name={jsonData.diets[i]['name']} image={jsonData.diets[i]['image']} description={jsonData.diets[i]['description']} nutri_info={jsonData.diets[i]['nutri_info']}/>)
     }
 
-    dietItems.map(item => {
-        return <>{item}</>
-    })
-    return <></>
+    //console.log(dietItems[0])
+
+    return <>{dietItems}</>
 }

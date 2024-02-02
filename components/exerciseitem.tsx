@@ -16,7 +16,7 @@ const vh = Dimensions.get('window').height;
 
 export const style = StyleSheet.create({
     wrapper: {
-        width: 0.8*vw,
+        width: vw,
         height: 0.15*vw,
         backgroundColor: 'gray',
         borderRadius: 10,
@@ -60,7 +60,7 @@ export default function ExerciseItem({image, name, description, muscles} : Exerc
 
     return (
         <View style={style.wrapper}>
-            <Image source={require(image)} style={style.image}/>
+            <Image source={{uri : image}} style={style.image}/>
             <View style={style.info}>
                 <Text>{name}</Text>
                 <View style={style.tags_wrapper}>
