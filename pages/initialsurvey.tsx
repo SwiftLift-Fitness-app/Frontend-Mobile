@@ -159,6 +159,7 @@ export default function Survey({navigation, user} : SurveyProp) {
                     <SurveyButton setStage={setStage} stage={2} text="Back"/>
                     <SubmitButton navigateTo="Index" navigation={navigation} json={prepareJSON}/>
                 </View>
+                <ProgressBar prog={0.99}/>
             </View>
         )
     }

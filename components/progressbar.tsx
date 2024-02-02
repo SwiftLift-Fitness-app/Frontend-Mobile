@@ -26,6 +26,7 @@ export default function ProgressBar({prog} : Progress) {
         bar: {
             backgroundColor: '#4461ae',
             height: 0.04*vh,
+            minWidth : prog*vw,
             width: growAnim.interpolate({
                 inputRange: [0, 100],
                 outputRange: ['0%', '100%'],
@@ -45,6 +46,7 @@ export default function ProgressBar({prog} : Progress) {
         }).start();
     }
 
+    testAnim();
 
     return (
         <Pressable style={styles.container}>

@@ -49,7 +49,7 @@ export default function DietBuilderPage({navigation} : DietBuilderPageProps) {
     return (
         <TouchableOpacity style={style.body}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <BuilderWrapper type="diet"></BuilderWrapper>
+            <BuilderWrapper navigation={navigation} type="diet"></BuilderWrapper>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>
