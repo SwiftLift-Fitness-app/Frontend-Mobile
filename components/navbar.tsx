@@ -21,7 +21,7 @@ export default function NavBar({setVisibility, menu} : any) {
             <Pressable id="circle" style={style.circle} onPress={setVisibility}>
                 <FontAwesomeIcon icon={faCircle} color="white" size={25}></FontAwesomeIcon>
             </Pressable>
-            <Pressable id="profile" style={style.homebtn}>
+            <Pressable id="profile" style={style.homebtn} onPress={() => {menu.navigate('Profile')}}>
                 <FontAwesomeIcon icon={faUser} color="white" size={30}></FontAwesomeIcon>
             </Pressable>
         </View>
