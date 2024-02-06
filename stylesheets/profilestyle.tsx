@@ -29,7 +29,7 @@ export const style = StyleSheet.create({
     },
     container : {
         width : vw,
-        height : 0.875*vh
+        height : vh
     },
     tags_wrapper : {
         width : vw,
@@ -39,7 +39,7 @@ export const style = StyleSheet.create({
     },
     tabs_title : {
         color : 'white',
-        textAlign : 'center'
+        textAlign : "left"
     },
     text : {
         color : 'white'
@@ -53,5 +53,9 @@ export const style = StyleSheet.create({
         alignItems : 'center',
         justifyContent : 'flex-start',
         flexDirection : 'row'
+    },
+    wrapper : {
+        width : vw,
+        backgroundColor : 'black'
     }
 })

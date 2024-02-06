@@ -18,6 +18,8 @@
     "@react-native-community/blur": "^4.4.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
+    "@types/d3": "^7.4.3",
+    "d3": "^7.8.5",
     "exp": "^57.2.1",
     "expo": "~49.0.15",
     "expo-font": "^11.6.0",

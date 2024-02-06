@@ -27,7 +27,7 @@ export default function ProfileCard() {
         jsonData = JSON.parse(jsonDataString);
     })
     return (
-        <View>
+        <View style={style.wrapper}>
             <View style={style.photo_name}>
                 <Text style={style.text}>{jsonData.name}</Text>
                 <Image source={{uri : jsonData.photo}}/>
