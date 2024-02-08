@@ -21,7 +21,7 @@ interface EditExercisePageProps {
     navigation: StackNavigationProp<any>
 }
 
-export default function EditExercisePage({navigation} : EditExercisePageProps) {
+export default function EditDietPage({navigation} : EditExercisePageProps) {
 
 
 
@@ -48,7 +48,7 @@ export default function EditExercisePage({navigation} : EditExercisePageProps) {
     return (
         <TouchableOpacity style={style.body}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <BuilderWrapper navigation={navigation} type="exercise"></BuilderWrapper>
+            <BuilderWrapper navigation={navigation} type="diet"></BuilderWrapper>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>
