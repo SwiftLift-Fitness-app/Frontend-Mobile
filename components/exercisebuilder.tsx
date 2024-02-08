@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { View, StyleSheet } from "react-native";
-import ExerciseItem from "./exerciseitem";
+import { ExerciseItem } from "./exerciseitem";
 
-export default function ExerciseBuilder() {
+export const ExerciseBuilder = React.forwardRef((ref : any) => {
 
     let jsonData : string; 
 
@@ -14,13 +14,33 @@ export default function ExerciseBuilder() {
     })
 
     let exerciseItems : Array<Element> = [];
+    let refArray : Array<any> = [];
 
-    for(let i=0; i<10; i++) {
-        exerciseItems.push(<ExerciseItem key={i} image="/" name="name" description="desc" muscles={['']}/>)
+    useImperativeHandle(ref, () => {
+    
+        function sendCurrentConf() {
+
+            let objArr : Array<Object> = [];
+            refArray.forEach(child => {
+                objArr.push(child.current.sendCurrentDataPackage());
+            })
+
+            return objArr
+        }
+    })
+
+    exerciseItems.forEach(ex => {
+        const childRef = useRef();
+        refArray.push(childRef);
+    })
+
+    for(let i=0; i<exerciseItems.length; i++) {
+        exerciseItems.push(<ExerciseItem key={i} image="/" name="name" description="desc" muscles={['']} isEdit={false} removeFunc={""} ref={refArray[i]}/>)
     }
 
     exerciseItems.map(item => {
         return <>{item}</>
     })
+
     return <>{exerciseItems}</>;
-}
+})

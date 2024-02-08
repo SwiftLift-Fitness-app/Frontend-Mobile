@@ -49,7 +49,6 @@ export default function ExerciseBuilderPage({navigation} : ExerciseBuilderPagePr
     return (
         <TouchableOpacity style={style.body}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            
             <BuilderWrapper type="exercise" navigation={navigation}></BuilderWrapper>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
