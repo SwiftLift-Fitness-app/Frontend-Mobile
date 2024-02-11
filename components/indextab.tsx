@@ -3,8 +3,15 @@ import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faFish, faPizzaSlice, faCheese, faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 import { useFonts } from "expo-font";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-export default function DietTab({progress, meals} : any) {
+interface DietTabProps {
+    progress : number, 
+    meals? : Array<any>,
+    navigation : StackNavigationProp<any>
+}
+
+export default function DietTab({progress, meals, navigation} : DietTabProps) {
 
     const vw = Dimensions.get('window').width;
     const vh = Dimensions.get('window').height;
@@ -141,8 +148,8 @@ export default function DietTab({progress, meals} : any) {
                 </View>
             </View>
             <View style={style.buttons}>
-                <Pressable style={style.end_btn}><Text style={style.white_text}>Add meal</Text></Pressable>
-                <Pressable style={style.end_btn}><Text style={style.white_text}>View more</Text></Pressable>
+                <Pressable style={style.end_btn} onPress={() => navigation.navigate("EditDiets")}><Text style={style.white_text}>Add meal</Text></Pressable>
+                <Pressable style={style.end_btn} onPress={() => navigation.navigate("Diets")}><Text style={style.white_text}>View more</Text></Pressable>
             </View>
         </View>
     )

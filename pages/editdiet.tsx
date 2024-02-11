@@ -1,5 +1,4 @@
 import React from "react";
-import ExerciseBuilder from "../components/exercisebuilder";
 import IndexHeader from "../components/indexheader";
 import NavBar from "../components/navbar";
 import Circles from "../components/circles";
@@ -18,11 +17,11 @@ export const style = StyleSheet.create({
     }
 });
 
-interface ExerciseBuilderPageProps {
+interface EditExercisePageProps {
     navigation: StackNavigationProp<any>
 }
 
-export default function ExerciseBuilderPage({navigation} : ExerciseBuilderPageProps) {
+export default function EditDietPage({navigation} : EditExercisePageProps) {
 
 
 
@@ -49,7 +48,7 @@ export default function ExerciseBuilderPage({navigation} : ExerciseBuilderPagePr
     return (
         <TouchableOpacity style={style.body}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
-            <BuilderWrapper type="exercise" navigation={navigation}></BuilderWrapper>
+            <BuilderWrapper navigation={navigation} type="diet"></BuilderWrapper>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>

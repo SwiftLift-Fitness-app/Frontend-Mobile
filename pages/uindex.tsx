@@ -67,7 +67,7 @@ export default function Index({navigation} : any) {
                 <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
-                    <DietTab progress={81}></DietTab>
+                    <DietTab progress={81} navigation={navigation}></DietTab>
                     <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>

@@ -8,12 +8,13 @@ import IndexHeader from "../components/indexheader";
 import { CheckBox, Input, Slider } from "react-native-elements";
 import RadioGroup from 'react-native-radio-buttons-group';
 
+//user logged state should be kept in the AppNavigator
 interface SurveyProp {
-    navigation : StackNavigationProp<any>,
-    user : string
+    navigation : StackNavigationProp<any>
+//  user : string
 }
 
-export default function Survey({navigation, user} : SurveyProp) {
+export default function Survey({navigation} : SurveyProp) {
 
     const [stage, setStage] = useState(1);
     const [age, setAge] = useState(12);
@@ -33,7 +34,7 @@ export default function Survey({navigation, user} : SurveyProp) {
         else g='other'
 
         const json : Object = {
-            user : user,
+            user : "someone",
             age : age,
             gender : g,
             weight : weight,

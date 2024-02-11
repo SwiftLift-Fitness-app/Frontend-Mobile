@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useImperativeHandle } from "react";
 import { StyleSheet, Dimensions, View, Text, Image } from "react-native";
 import { useState } from "react";
 import { style } from "./exerciseitem";
@@ -12,7 +12,7 @@ interface DietBuilderJsonResponse {
     nutri_info : Array<number>
 }
 
-export default function DietItem({name, image, description, nutri_info} : DietBuilderJsonResponse) {
+export const DietItem = React.forwardRef(({name, image, description, nutri_info} : DietBuilderJsonResponse, ref : any) => {
 
     const style1 = StyleSheet.create({
         makeFront : {
@@ -24,6 +24,17 @@ export default function DietItem({name, image, description, nutri_info} : DietBu
     const vh = Dimensions.get('window').height;
 
     const [am1, setAm1] = useState(100);
+
+    useImperativeHandle(ref, () => {
+        function sendCurrentDataPackage() {
+            const diet : Object = {
+                name : name,
+                amount : am1,
+            }
+
+            return diet;
+        }
+    });
 
     return (
         <View style={[style.wrapper, style1.makeFront]}>
@@ -42,4 +53,4 @@ export default function DietItem({name, image, description, nutri_info} : DietBu
 
 
 
-}
+})

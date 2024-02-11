@@ -86,7 +86,9 @@ export default function ExerciseTab({navigation} : any) {
       ))}
       <WeekDays days={[true, false, true, true, false, false, true]}></WeekDays>
       <Pressable style={styles.addExerciseButton} onPress={() => {navigation.navigate('Programs')}}>
-        <Text style={styles.buttonText}>Go to your Program</Text>
+        <Pressable onPress={navigation.navigate("Programs")}>
+          <Text style={styles.buttonText}>Go to your Program</Text>
+        </Pressable>
       </Pressable>
     </View>
   );
