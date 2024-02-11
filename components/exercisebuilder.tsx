@@ -2,6 +2,17 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import ExerciseItem from "./exerciseitem";
 
+interface ExerciseItemResponse {
+    name : string,
+    image : string,
+    description : string,
+    muscles : Array<string>
+}
+
+interface ExerciseBuilderJsonResponse {
+    exercises : Array<ExerciseItemResponse>
+}
+
 export default function ExerciseBuilder() {
 
     let jsonData : string; 
