@@ -8,6 +8,8 @@ import image2 from '../img/bench-press.png';
 import image3 from '../img/dumbell-curl.png'
 import { style } from "../stylesheets/exercisecardstyle";
 import WeekDays from '../components/weekdaystray';
+import MuscleGroups from "./musclegroups";
+import Kalendar from "./calendar";
 
 export default function ProgramCard() {
 
@@ -59,20 +61,31 @@ export default function ProgramCard() {
             alignItems: 'center',
             padding: 10,
             gap: 25
+        },
+        main_wrapper : {
+            display : 'flex',
+            flexDirection : 'column',
+            gap : 30
         }
     });
     return (
+        <View>
+        <Kalendar></Kalendar>
         <Pressable style={styles.container} >
             <Text style={styles.top_bar}>My first workout</Text>
             <View style={style.container}>
                 <Images images={[image1, image2, image3]}></Images>
             </View>       
             <WeekDays days={[true, true, false, true, false, true, false]}></WeekDays>
+            <View>
+                <MuscleGroups muscles={["Chest", "Legs", "ARM"]}/>
+            </View>
             <View style={styles.controls_wrapper}>
                 <PlayButton size={1} type='edit'/>
                 <PlayButton size={1.25} type='play'/>
                 <PlayButton size={1} type='skip'/>
             </View>
         </Pressable>
+        </View>
     )
 }

@@ -33,7 +33,7 @@ export const ExerciseBuilder = React.forwardRef((ref : any) => {
 
             let objArr : Array<Object> = [];
             refArray.forEach(child => {
-                objArr.push(child.current.sendCurrentDataPackage());
+                objArr.push(child.sendCurrentDataPackage());
             })
 
             return objArr

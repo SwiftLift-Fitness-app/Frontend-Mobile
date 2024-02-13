@@ -43,10 +43,10 @@ export const Editor = React.forwardRef(({type} : any, ref : any) => {
     
                 let objArr : Array<any> = [];
                 refArray.forEach(child => {
-                    objArr.push(child.current.sendCurrentDataPackage());
+                    objArr.push(child.sendCurrentDataPackage());
                 })
     
-                return objArr
+                return objArr;
             }
         })
 

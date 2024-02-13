@@ -17,19 +17,17 @@ export default function ButtonPanel({navigation, endpoint} : ButtonPanelProps) {
     const style = StyleSheet.create({
         wrapper: {
             width: 0.9*vw,
-            height: 0.55*vw,
+            height: 0.15*vw,
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             gap: 40,
             justifyContent: 'center',
             alignItems: 'center',
-            marginBottom: 40,
-            marginTop: 30
         },
         btn: {
             width: 0.35*vw,
-            height: 0.25*vw,
+            height: 0.15*vw,
             borderRadius: 10,
             backgroundColor: '#203354',
             display: 'flex',
@@ -46,12 +44,6 @@ export default function ButtonPanel({navigation, endpoint} : ButtonPanelProps) {
             </Pressable>
             <Pressable style={style.btn}>
                 <FontAwesomeIcon icon={faMinus} color="white" size={30}></FontAwesomeIcon>
-            </Pressable>
-            <Pressable style={style.btn}>
-                <FontAwesomeIcon icon={faPlusMinus} color="white" size={30}></FontAwesomeIcon>
-            </Pressable>
-            <Pressable style={style.btn}>
-                <FontAwesomeIcon icon={faMicrosoft} color="white" size={30}></FontAwesomeIcon>
             </Pressable>
         </View>
     )

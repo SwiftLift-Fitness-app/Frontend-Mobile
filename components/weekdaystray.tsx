@@ -28,7 +28,7 @@ export default function WeekDays({days} : Days) {
         active_day: {
             width: 20,
             height: 20,
-            backgroundColor: '#e04c3e',
+            backgroundColor: '#4461ae',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
