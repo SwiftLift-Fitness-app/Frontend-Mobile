@@ -19,7 +19,7 @@ interface DietProps {
     navigation: StackNavigationProp<any>
 }
 
-export default function Diets({navigation} : DietProps) {
+export default function DietsWithPop({navigation} : DietProps) {
 
     const [isCirclesVisible, setCirclesVisibility] = useState(false);
     const [isMenuVisible, setMenuVisibility] = useState(false);
@@ -44,7 +44,8 @@ export default function Diets({navigation} : DietProps) {
         <TouchableOpacity onPress={changeCirclesVisibilityWhenUnfocused} style={style.container}>
             <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
             <ButtonPanel navigation={navigation} endpoint='DietBuilder'/>
-            <CardSlider cards={[1,2,3]} type={"diet"} navigation={navigation}/>
+            <CardSlider cards={[1,2,3]} type={"diet"}/>
+            <RecipePop title="My recipe" id="some" isVisible={true}/>
             <NavBar menu={navigation} setVisibility={changeCirclesVisibility}></NavBar>
             <Circles menu={navigation} visible={isCirclesVisible}></Circles>
         </TouchableOpacity>

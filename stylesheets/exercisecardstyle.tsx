@@ -29,5 +29,9 @@ export const style = StyleSheet.create({
     desc: {
         color: 'white',
         fontSize: 15
+    },
+    cardimage_d : {
+        width : 155,
+        height : 90
     }
 })

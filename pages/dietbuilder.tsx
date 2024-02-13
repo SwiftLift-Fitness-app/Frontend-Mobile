@@ -5,7 +5,7 @@ import Circles from "../components/circles";
 import { StyleSheet, Dimensions, View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
-import DietBuilder from "../components/dietbuilder";
+import { DietBuilder } from "../components/dietbuilder";
 import BuilderWrapper from "../components/builderwrapper";
 
 const vw = Dimensions.get('screen').width;

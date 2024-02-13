@@ -1,14 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Pressable, GestureResponderEvent, NativeSyntheticEvent } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPlay, faEdit, faFastForward, faInfo} from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
     size: number,
-    type: string
+    type: string,
+    onClick? : any
 }
 
-export default function PlayButton({size, type} : Props) {
+export default function PlayButton({size, type, onClick} : Props) {
 
     const vw = Dimensions.get('window').width;
     const vh = Dimensions.get('window').height;
@@ -48,9 +49,9 @@ export default function PlayButton({size, type} : Props) {
     }
     else if (type === "info") {
         return (
-            <View style={styles.container}>
+            <Pressable style={styles.container} onPress={onClick}>
                 <FontAwesomeIcon icon={faInfo} color="white" size={16*size}/>
-            </View>
+            </Pressable>
         )
     }
 }

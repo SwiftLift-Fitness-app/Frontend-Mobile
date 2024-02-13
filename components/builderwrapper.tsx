@@ -1,9 +1,8 @@
-import React, { PropsWithChildren, useRef } from "react";
+import React, { PropsWithChildren } from "react";
 import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import { DietBuilder } from "./dietbuilder";
 import { ExerciseBuilder } from "./exercisebuilder";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { Editor } from "./edit";
 
 interface BuilderWrapperProp {
     type : string,
@@ -14,7 +13,6 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
 
     const vw = Dimensions.get('screen').width;
     const vh = Dimensions.get('screen').height;
-
 
     const style = StyleSheet.create({
         container : {
@@ -35,52 +33,35 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
         }
     })
 
-    function sendEdit(edits : string) {
-
-    }
-
-    const child : any = useRef();
-
     if(type === "diet") {
         return (
             <View style={style.container}>
-                <DietBuilder ref={child}/>
+                <DietBuilder/>
                 <View style={style.buttongrp}>
-                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Diets" urlLoc=""/>
-                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Diets" urlLoc="exercises" json={child.current.sendCurrentConf()}/>
+                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Diets"/>
+                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Diets"/>
                 </View>
             </View>
         )
     } else if (type === "exercise") {
-
         return (
             <View style={style.container}>
-                <ExerciseBuilder ref={child}/>
+                <ExerciseBuilder/>
                 <View style={style.buttongrp}>
-                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs" urlLoc=""/>
-                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs" urlLoc="exercises" json={child.current.sendCurrentConf()}/>
+                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs"/>
+                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs"/>
                 </View>
             </View>
         )
-    } else if(type === "exedit") {
+    } else if (type === "edit") {
         return (
             <View style={style.container}>
-                <Editor type={"exercise"} ref={child}/>
-                <View style={style.buttongrp}>
-                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs" urlLoc=""/>
-                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs" urlLoc="exercises" json={child.current.sendCurrentConf()}/>
-                </View>   
+            <ExerciseBuilder/>
+            <View style={style.buttongrp}>
+                <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs"/>
+                <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs"/>
             </View>
-        )
-    } else if(type === "dedit") {
-        return (
-            <View style={style.container}>
-                <Editor type={"diet"} ref={child}/>
-                <View style={style.buttongrp}>
-                    <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs" urlLoc=""/>
-                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs" urlLoc="diets" json={child.current.sendCurrentConf()}/>
-                </View>   
-            </View>
+        </View>
         )
     }
 }
@@ -88,12 +69,10 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
 interface BuilderWrapperButtonProps {
     navigateTo : string,
     text : string,
-    navigation : StackNavigationProp<any>,
-    urlLoc : string,
-    json? : JSON
+    navigation : StackNavigationProp<any>
 }
 
-export function BuilderWrapperButton({navigateTo, text, navigation, urlLoc, json} : BuilderWrapperButtonProps) {
+export function BuilderWrapperButton({navigateTo, text, navigation} : BuilderWrapperButtonProps) {
     const style = StyleSheet.create({
         btn : {
             width : 70,
@@ -105,23 +84,8 @@ export function BuilderWrapperButton({navigateTo, text, navigation, urlLoc, json
         }
     })
 
-    function submitJSON() {
-
-        fetch(`http://localhost/${urlLoc}/add`, {
-            method : "PATCH",
-            body : JSON.stringify(json),
-            headers : {
-                "Content-type" : "application/json"
-            }
-        }).then((response : Response) => {
-            console.log(response.status);
-        })
-
-        navigation.navigate(navigateTo);
-    }
-
     return (
-        <Pressable style={style.btn} onPress={submitJSON}>
+        <Pressable style={style.btn} onPress={() => navigation.navigate(navigateTo)}>
             <Text>{text}</Text>
         </Pressable>
     )

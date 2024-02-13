@@ -16,15 +16,17 @@ export default function ButtonPanel({navigation, endpoint} : ButtonPanelProps) {
     
     const style = StyleSheet.create({
         wrapper: {
-            width: 0.8*vw,
+            width: 0.9*vw,
             height: 0.55*vw,
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            gap: 10,
+            gap: 40,
             justifyContent: 'center',
-            alignItems: 'center'
-                },
+            alignItems: 'center',
+            marginBottom: 40,
+            marginTop: 30
+        },
         btn: {
             width: 0.35*vw,
             height: 0.25*vw,

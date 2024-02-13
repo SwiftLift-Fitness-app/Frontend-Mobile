@@ -1,5 +1,5 @@
 import React from "react";
-import ExerciseBuilder from "../components/exercisebuilder";
+import { ExerciseBuilder } from "../components/exercisebuilder";
 import IndexHeader from "../components/indexheader";
 import NavBar from "../components/navbar";
 import Circles from "../components/circles";

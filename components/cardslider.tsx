@@ -3,8 +3,9 @@ import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { useSwipe } from "../hooks/useSwipe";
 import ExerciseCard from "./trainingexercisecard";
 import ProgramCard from "./programcard";
+import DietCard from "./dietcard";
 
-export default function CardSlider({cards}: any) {
+export default function CardSlider({cards, type, navigation}: any) {
 
     const vw = Dimensions.get('window').width
     const style = StyleSheet.create({
@@ -35,7 +36,8 @@ export default function CardSlider({cards}: any) {
     const cardsArr = [];
 
     for(let i=0; i<cards.length; i++) {
-        cardsArr.push(<ProgramCard></ProgramCard>)
+        if(type === "diet") cardsArr.push(<DietCard navigation={navigation}></DietCard>)
+        else cardsArr.push(<ProgramCard></ProgramCard>)
     }
     return (
         <ScrollView style={style.slider} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>

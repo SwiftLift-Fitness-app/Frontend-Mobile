@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Dimensions, StyleSheet, DimensionValue, Pressable, Text } from "react-native";
 import { style } from "../stylesheets/exercisecardstyle";
 import Images from "./cardimages";
 import PlayButton from "./playbutton";
 import DietInfo from "./dietinfo";
+import RecipePop from "./recipepop";
 
 interface dietJsonFetch {
     name : string,
@@ -11,13 +12,19 @@ interface dietJsonFetch {
     info : Array<number>
 }
 
-export default function DietCard() {
+
+export default function DietCard({navigation} : any) {
+
+    const [isPopVisible, setPopVisible] = useState(false);
+    function triggerPop() {
+        setPopVisible(true);
+    }
 
     let jsonDataString : string = "";
 
     let jsonData : dietJsonFetch = {
         name : 'My first diet',
-        images : ["https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Fplant%2Fapple-fruit-and-tree&psig=AOvVaw0DZeBQdD0CHW5FNhTI2ul1&ust=1706808590386000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDn8dKTiIQDFQAAAAAdAAAAABAE", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Fplant%2Fapple-fruit-and-tree&psig=AOvVaw0DZeBQdD0CHW5FNhTI2ul1&ust=1706808590386000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDn8dKTiIQDFQAAAAAdAAAAABAEhttps://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Fplant%2Fapple-fruit-and-tree&psig=AOvVaw0DZeBQdD0CHW5FNhTI2ul1&ust=1706808590386000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDn8dKTiIQDFQAAAAAdAAAAABAE", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Fplant%2Fapple-fruit-and-tree&psig=AOvVaw0DZeBQdD0CHW5FNhTI2ul1&ust=1706808590386000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDn8dKTiIQDFQAAAAAdAAAAABAE"],
+        images : ["https://www.shutterstock.com/image-photo/healthy-lunch-workplace-pick-food-260nw-1855267585.jpg", "https://media.istockphoto.com/id/1472680285/photo/healthy-meal-with-grilled-chicken-rice-salad-and-vegetables-served-by-woman.webp?b=1&s=170667a&w=0&k=20&c=D4EsPmVWVJTM3sdZbA141EE53yVVxVmYPOGbiSNIP6M=", "https://www.freshnlean.com/wp-content/uploads/2021/03/Meal-Plan-plate-protein.png"],
         info : [1760, 60, 30, 10]
     };
 
@@ -38,10 +45,10 @@ export default function DietCard() {
           alignItems: 'center',
           backgroundColor: '#0d0e0e',
           borderRadius: 20,
-          paddingTop: 10,
           width: 0.875*vw,
           minHeight: 0.3*vh,
-          paddingBottom: 10,
+          maxHeight: 0.45*vh,
+          overflow : 'hidden',
           gap: 10
         },
         header: {
@@ -76,23 +83,34 @@ export default function DietCard() {
             alignItems: 'center',
             padding: 10,
             gap: 25
-        }
+        },
+        container1: {
+            width: 0.875*vw,
+            borderRadius: 10,
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            padding : 0
+        },
     });
     return (
         <Pressable style={styles.container} >
             <Text style={styles.top_bar}>{jsonData.name}</Text>
-            <View style={style.container}>
+            <View style={styles.container1}>
                 {
                     //expecting 4 images from the GET request 
                 }
-                <Images images={jsonData.images}></Images>
+                <Images type={"diets"} images={[...jsonData.images, "https://www.shutterstock.com/image-photo/healthy-lunch-workplace-pick-food-260nw-1855267585.jpg"]}></Images>
                 <DietInfo calories={jsonData.info[0]} protein={jsonData.info[1]} carbs={jsonData.info[2]} fat={jsonData.info[3]}/>
             </View>       
             <View style={styles.controls_wrapper}>
                 <PlayButton size={1} type='edit'/>
-                <PlayButton size={1.25} type='info'/>
+                <PlayButton size={1.25} type='info' onClick={() => {navigation.navigate("DietsWithPop")}}/>
                 <PlayButton size={1} type='skip'/>
             </View>
+            <RecipePop title="My first diet" id="some" isVisible={isPopVisible}/>
         </Pressable>
     )
 }

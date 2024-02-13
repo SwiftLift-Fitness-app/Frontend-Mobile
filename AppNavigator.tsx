@@ -15,6 +15,7 @@ import DietBuilderPage from './pages/dietbuilder';
 import Profile from './pages/profile';
 import EditExercisePage from './pages/editexercise';
 import EditDietPage from './pages/editdiet';
+import DietsWithPop from './pages/dietwithpop';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ export default function AppNavigator() {
             <Stack.Screen name='Profile' component={Profile} options={{headerShown: false}}/>
             <Stack.Screen name='EditPrograms' component={EditExercisePage} options={{headerShown: false}}/>
             <Stack.Screen name='EditDiets' component={EditDietPage} options={{headerShown: false}}/>
+            <Stack.Screen name='DietsWithPop' component={DietsWithPop} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }
