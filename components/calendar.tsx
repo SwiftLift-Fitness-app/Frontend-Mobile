@@ -72,8 +72,7 @@ export default function Kalendar({name, user} : KalendarProps) {
                 backgroundColor : 'black',
                 shadowColor : 'black',
                 width : 0.85*vw,
-                height : 200,
-                marginBottom : 40
+                height : 150
             }}
             theme={{
                 backgroundColor : 'black',

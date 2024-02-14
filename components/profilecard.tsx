@@ -15,7 +15,7 @@ export default function ProfileCard() {
     let jsonDataString = "";
     let jsonData : ProfileInfo = {
         name : 'Moderator Moderatorov',
-        photo : 'https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.iIuiLMQfxC-__lbkOhCIJAHaIB%26pid%3DApi&sp=1707174731T73f8d28462c5e84b135b8ecbb46245f718b75d19aeff9c3e1032c93e3a142e34',
+        photo : 'https://images.pexels.com/photos/6869635/pexels-photo-6869635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         training_streak : 10,
         diet_streak : 10
     };

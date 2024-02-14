@@ -27,7 +27,8 @@ export default function ProgramCard() {
           width: 0.875*vw,
           minHeight: 0.3*vh,
           paddingBottom: 10,
-          gap: 10
+          gap: 10,
+          marginTop : 120
         },
         header: {
           fontSize: 24,

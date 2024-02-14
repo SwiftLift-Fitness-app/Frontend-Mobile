@@ -5,6 +5,7 @@ import Images from "./cardimages";
 import PlayButton from "./playbutton";
 import DietInfo from "./dietinfo";
 import RecipePop from "./recipepop";
+import Kalendar from "./calendar";
 
 interface dietJsonFetch {
     name : string,
@@ -49,7 +50,8 @@ export default function DietCard({navigation} : any) {
           minHeight: 0.3*vh,
           maxHeight: 0.45*vh,
           overflow : 'hidden',
-          gap: 10
+          gap: 10,
+          marginTop : 120
         },
         header: {
           fontSize: 24,
@@ -96,21 +98,24 @@ export default function DietCard({navigation} : any) {
         },
     });
     return (
-        <Pressable style={styles.container} >
-            <Text style={styles.top_bar}>{jsonData.name}</Text>
-            <View style={styles.container1}>
-                {
-                    //expecting 4 images from the GET request 
-                }
-                <Images type={"diets"} images={[...jsonData.images, "https://www.shutterstock.com/image-photo/healthy-lunch-workplace-pick-food-260nw-1855267585.jpg"]}></Images>
-                <DietInfo calories={jsonData.info[0]} protein={jsonData.info[1]} carbs={jsonData.info[2]} fat={jsonData.info[3]}/>
-            </View>       
-            <View style={styles.controls_wrapper}>
-                <PlayButton size={1} type='edit'/>
-                <PlayButton size={1.25} type='info' onClick={() => {navigation.navigate("DietsWithPop")}}/>
-                <PlayButton size={1} type='skip'/>
-            </View>
-            <RecipePop title="My first diet" id="some" isVisible={isPopVisible}/>
-        </Pressable>
+        <View>
+            <Kalendar/>
+            <Pressable style={styles.container} >
+                <Text style={styles.top_bar}>{jsonData.name}</Text>
+                <View style={styles.container1}>
+                    {
+                        //expecting 4 images from the GET request 
+                    }
+                    <Images type={"diets"} images={[...jsonData.images, "https://www.shutterstock.com/image-photo/healthy-lunch-workplace-pick-food-260nw-1855267585.jpg"]}></Images>
+                    <DietInfo calories={jsonData.info[0]} protein={jsonData.info[1]} carbs={jsonData.info[2]} fat={jsonData.info[3]}/>
+                </View>       
+                <View style={styles.controls_wrapper}>
+                    <PlayButton size={1} type='edit'/>
+                    <PlayButton size={1.25} type='info' onClick={() => {navigation.navigate("DietsWithPop")}}/>
+                    <PlayButton size={1} type='skip'/>
+                </View>
+                <RecipePop title="My first diet" id="some" isVisible={isPopVisible}/>
+            </Pressable>
+        </View>
     )
 }

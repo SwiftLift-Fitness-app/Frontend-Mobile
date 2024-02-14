@@ -29,7 +29,8 @@ export const style = StyleSheet.create({
     },
     container : {
         width : vw,
-        height : vh
+        height : vh,
+        backgroundColor : '#070720'
     },
     tags_wrapper : {
         width : vw,

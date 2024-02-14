@@ -21,9 +21,10 @@ export default function ButtonPanel({navigation, endpoint} : ButtonPanelProps) {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            gap: 40,
+            gap: 60,
             justifyContent: 'center',
             alignItems: 'center',
+            marginBottom : 20
         },
         btn: {
             width: 0.35*vw,

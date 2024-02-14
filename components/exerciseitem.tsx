@@ -65,8 +65,8 @@ export const ExerciseItem = React.forwardRef(({image, name, description, muscles
     const [am3, setAm3] = useState(0);
 
     useImperativeHandle(ref, () => {
-        
-        function sendCurrentDataPackage() {
+        return {
+            sendCurrentDataPackage() {
             const exercise : Object = {
                 name : name,
                 sets : am1,
@@ -76,6 +76,7 @@ export const ExerciseItem = React.forwardRef(({image, name, description, muscles
 
             return exercise;
         }
+    }
     });
 
     if(!isEdit) {
