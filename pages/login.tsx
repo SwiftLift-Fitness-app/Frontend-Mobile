@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, Pressable, Image, ImageBackground } from "react-native";
 import { style } from "../stylesheets/loginstyle";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faFacebook, faGoogle, faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGoogle, faMicrosoft, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { useState, useEffect } from "react";
 
 export default function Login({navigation} : any) {
@@ -22,7 +22,7 @@ export default function Login({navigation} : any) {
                 <View style={style.signfield}>
                     <Pressable style={style.logbtng}><FontAwesomeIcon icon={faGoogle} color="white" size={30}></FontAwesomeIcon></Pressable>
                     <Pressable style={style.logbtnf}><FontAwesomeIcon icon={faFacebook} color="white" size={30}></FontAwesomeIcon></Pressable>
-                    <Pressable style={style.logbtnm}><FontAwesomeIcon icon={faMicrosoft} color="white" size={30}></FontAwesomeIcon></Pressable>
+                    <Pressable style={style.logbtnm}><FontAwesomeIcon icon={faTwitter} color="white" size={30}></FontAwesomeIcon></Pressable>
                 </View>
                 <Text onPress={() => navigation.navigate('Signup')} style={style.signuptext}>Don't have an account? Sign Up</Text>
             </View>

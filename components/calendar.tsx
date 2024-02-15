@@ -1,7 +1,7 @@
 import { json } from "d3";
 import React from "react";
 import { StyleSheet, View, Text, Dimensions } from "react-native";
-import { Calendar } from "react-native-calendars";
+import { Calendar, CalendarProvider, ExpandableCalendar } from "react-native-calendars";
 import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 interface KalendarProps {
@@ -55,9 +55,9 @@ export default function Kalendar({name, user} : KalendarProps) {
         return res;
     }
 
-    const give = getMarkedDates(jsonData.active_days, 'blue');
+    const give = getMarkedDates(jsonData.active_days, '#4461ae');
     console.log(give);
-    const iveg = getMarkedDates(jsonData.inactive_days, 'red');
+    const iveg = getMarkedDates(jsonData.inactive_days, '#e04c3e');
     const vegi = getMarkedDates(jsonData.unavailable_days, 'green');
 
     const g = {...give, ...iveg};
@@ -66,21 +66,21 @@ export default function Kalendar({name, user} : KalendarProps) {
     const vh = Dimensions.get('screen').height;
 
     return (
-        <Calendar
-            markedDates={g}
-            style = {{
-                backgroundColor : 'black',
-                shadowColor : 'black',
-                width : 0.85*vw,
-                height : 150
-            }}
-            theme={{
-                backgroundColor : 'black',
-                selectedDayTextColor : 'white',
-                dayTextColor : 'white',
-                calendarBackground : 'black',
-            }}
-        ></Calendar>
+        <CalendarProvider date="2024-02-15">
+            <ExpandableCalendar
+                calendarHeight={10}
+                markedDates={g}
+                style = {{
+                    backgroundColor : 'black',
+                    width : 0.85*vw,
+                }}
+                theme={{
+                    selectedDayTextColor : 'white',
+                    dayTextColor : 'white',
+                    calendarBackground : 'black',
+                }}
+            ></ExpandableCalendar>
+        </CalendarProvider>
     )
 
 }

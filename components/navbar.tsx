@@ -5,13 +5,14 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { style } from "../stylesheets/navbarstyle";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-/*interface SetVisibilityProp {
-    setVisibility: 
-} */
+interface SetVisibilityProp {
+    setVisibility: any,
+    menu : StackNavigationProp<any>
+} 
 
-export default function NavBar({setVisibility, menu} : any) {
-
+export default function NavBar({setVisibility, menu} : SetVisibilityProp) {
 
     return (
         <View id="wrapper" style={style.wrapper}>

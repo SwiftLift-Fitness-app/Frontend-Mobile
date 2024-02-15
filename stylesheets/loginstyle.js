@@ -27,14 +27,14 @@ export const style = StyleSheet.create({
     textbox: {
         backgroundColor: 'white',
         fontSize: 15,
-        width: '70vw',
+        width: '72.5vw',
         height: 30,
         borderRadius: 5,
         marginTop: 15,
         paddingLeft: 10
     },
     logbtn: {
-        width: '70vw',
+        width: '72.5vw',
         height: '5vh',
         backgroundColor: '#4461ae',
         borderRadius: 5,
@@ -89,7 +89,7 @@ export const style = StyleSheet.create({
     logbtnm: {
         width: '7vh',
         height: '7vh',
-        backgroundColor: '#a772c1',
+        backgroundColor: 'black',
         borderRadius: 5,
         display: 'flex',
         alignItems: 'center',

@@ -51,7 +51,7 @@ export default function DietCard({navigation} : any) {
           maxHeight: 0.45*vh,
           overflow : 'hidden',
           gap: 10,
-          marginTop : 120
+          marginTop : 10
         },
         header: {
           fontSize: 24,

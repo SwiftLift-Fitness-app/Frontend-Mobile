@@ -23,12 +23,10 @@ export default function ProgramCard() {
           alignItems: 'center',
           backgroundColor: '#0d0e0e',
           borderRadius: 20,
-          paddingTop: 10,
           width: 0.875*vw,
           minHeight: 0.3*vh,
-          paddingBottom: 10,
           gap: 10,
-          marginTop : 120
+          marginTop : 10
         },
         header: {
           fontSize: 24,

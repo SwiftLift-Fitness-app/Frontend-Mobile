@@ -42,10 +42,10 @@ export default function DietInfo({calories, protein, carbs, fat} : DietInfoProps
 
      return (
         <View style={dietStyle.container}>
-            <DietInfoItem value={calories} type="calories" color="blue" icon={faBolt} unit="kcal"/>
+            <DietInfoItem value={calories} type="calories" color="#5179bd" icon={faBolt} unit=""/>
             <DietInfoItem value={protein} type="protein" color="green" icon={faEgg} unit="%"/>
-            <DietInfoItem value={carbs} type="carbs" color="yellow" icon={faBreadSlice} unit="%"/>
-            <DietInfoItem value={fat} type="fats" color="red" icon={faOilCan} unit="%"/>
+            <DietInfoItem value={carbs} type="carbs" color="#fff190" icon={faBreadSlice} unit="%"/>
+            <DietInfoItem value={fat} type="fats" color="#e04c3e" icon={faOilCan} unit="%"/>
         </View>
      )
 }
