@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './pages/home';
 import Login from './pages/login';
@@ -20,13 +20,25 @@ import DietsWithPop from './pages/dietwithpop';
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
+
+    const [user, setUser] = useState("");
+
+    function setUsername(name : string) {
+        setUser(name);
+        console.log(user);
+    }
+
     return (
         <Stack.Navigator initialRouteName='Home'>
             <Stack.Screen name='Home' component={HomePage} options={{headerShown: false}}/>
-            <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
+            <Stack.Screen name='Login' options={{headerShown: false}}> 
+                {props => <Login {...props} user={user} setUser={setUsername}></Login>}
+            </Stack.Screen>
             <Stack.Screen name='Results' component={Results} options={{headerShown: false}}/>
             <Stack.Screen name='Signup' component={SignUp} options={{headerShown: false}}/>
-            <Stack.Screen name='Index' component={Index} options={{headerShown: false}}/>
+            <Stack.Screen name='Index' options={{headerShown: false}}>
+                {props => <Index {...props}></Index>}
+            </Stack.Screen>
             <Stack.Screen name='Stats' component={Stats} options={{headerShown: false}}/>
             <Stack.Screen name='Programs' component={Programs} options={{headerShown: false}}/>
             <Stack.Screen name='Session' component={SessionPage}  options={{headerShown: false}}/>

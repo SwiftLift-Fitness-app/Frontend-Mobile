@@ -8,10 +8,11 @@ import { StackNavigationProp } from "@react-navigation/stack";
 interface DietTabProps {
     progress : number, 
     meals? : Array<any>,
-    navigation : StackNavigationProp<any>
+    navigation : StackNavigationProp<any>,
+    user : string
 }
 
-export default function DietTab({progress, meals, navigation} : DietTabProps) {
+export default function DietTab({progress, meals, navigation, user} : DietTabProps) {
 
     const vw = Dimensions.get('window').width;
     const vh = Dimensions.get('window').height;

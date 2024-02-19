@@ -12,7 +12,7 @@ import NavBar from "../components/navbar";
 import Circles from "../components/circles";
 //import { BlurView } from "@react-native-community/blur";
 
-export default function Index({navigation} : any) {
+export default function Index({navigation, user} : any) {
 
     const curDate = new Date();
     const dayWeek = convertIndexToWord(curDate.getDay());
@@ -67,7 +67,7 @@ export default function Index({navigation} : any) {
                 <IndexHeader menu={navigation} showMenu={isMenuVisible} changeMenu={changeMenuVisibility}/>
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
-                    <DietTab progress={81} navigation={navigation}></DietTab>
+                    <DietTab user={user} progress={81} navigation={navigation}></DietTab>
                     <ExerciseTab navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>

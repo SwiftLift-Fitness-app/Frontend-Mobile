@@ -4,10 +4,33 @@ import { style } from "../stylesheets/loginstyle";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faFacebook, faGoogle, faMicrosoft, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { useState, useEffect } from "react";
+import { PageProps } from "../navigationProps";
 
-export default function Login({navigation} : any) {
+export default function Login({navigation, user, setUser} : any) {
 
     const [isLogged, setIsLogged] = useState(false);
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    function onSubmit() {
+        let post : Object =  {
+            username : username,
+            password : password
+        }
+        setUser("sample");
+        return post;
+    }
+
+    fetch(`http://localhost:8080/users/login?username=${username}&password=${password}`, {
+        method : "POST",
+        headers : {
+            "Content-type" : "application/json"
+        },
+        body : JSON.stringify(onSubmit())
+    }).then((response : Response) => {
+        
+    })
     
     return (
         <View style={style.body}>
@@ -15,8 +38,8 @@ export default function Login({navigation} : any) {
                 <Text style={style.signlabel}>Login to your account</Text>
             </ImageBackground>
             <View style={style.dummy}>
-                <TextInput placeholder="Enter your email" style={style.textbox}></TextInput>
-                <TextInput placeholder="Enter password" style={style.textbox}></TextInput>
+                <TextInput placeholder="Enter your username" style={style.textbox} onChangeText={text => setUsername(text)}></TextInput>
+                <TextInput placeholder="Enter password" style={style.textbox} onChangeText={text => setPassword(text)}></TextInput>
                 <Pressable style={style.logbtn} onPress={ async () => { /* await (implement log in system) navigation to index is just for testing the Index page */ navigation.navigate('Survey')}}><Text style={style.whitetext}>Log In</Text></Pressable>
                 <Text>Or</Text>
                 <View style={style.signfield}>
