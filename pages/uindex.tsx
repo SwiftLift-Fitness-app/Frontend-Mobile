@@ -68,7 +68,7 @@ export default function Index({navigation, user} : any) {
                 <PageTitle text='Welcome again'></PageTitle>
                 <View style={style.tab_wrapper}>
                     <DietTab user={user} progress={81} navigation={navigation}></DietTab>
-                    <ExerciseTab navigation={navigation}></ExerciseTab>
+                    <ExerciseTab user={user} navigation={navigation}></ExerciseTab>
                 </View>
                 <UserMenu isVisible={isMenuVisible} menu={navigation}/>
                 <NavBar setVisibility={changeCirclesVisibility} menu={navigation}/>

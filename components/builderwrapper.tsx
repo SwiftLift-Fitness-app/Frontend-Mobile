@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useRef } from "react";
 import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import { DietBuilder } from "./dietbuilder";
 import { ExerciseBuilder } from "./exercisebuilder";
@@ -33,10 +33,12 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
         }
     })
 
+    let ref = useRef();
+
     if(type === "diet") {
         return (
             <View style={style.container}>
-                <DietBuilder/>
+                <DietBuilder ref={ref}/>
                 <View style={style.buttongrp}>
                     <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Diets"/>
                     <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Diets"/>
@@ -46,7 +48,7 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
     } else if (type === "exercise") {
         return (
             <View style={style.container}>
-                <ExerciseBuilder/>
+                <ExerciseBuilder ref={ref}/>
                 <View style={style.buttongrp}>
                     <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs"/>
                     <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs"/>
@@ -56,7 +58,7 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
     } else if (type === "edit") {
         return (
             <View style={style.container}>
-            <ExerciseBuilder/>
+            <ExerciseBuilder ref={ref}/>
             <View style={style.buttongrp}>
                 <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs"/>
                 <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs"/>

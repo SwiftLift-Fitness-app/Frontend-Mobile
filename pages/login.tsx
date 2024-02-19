@@ -8,7 +8,7 @@ import { PageProps } from "../navigationProps";
 
 export default function Login({navigation, user, setUser} : any) {
 
-    const [isLogged, setIsLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState(true);
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -18,7 +18,7 @@ export default function Login({navigation, user, setUser} : any) {
             username : username,
             password : password
         }
-        setUser("sample");
+        //setUser("sample");
         return post;
     }
 
@@ -28,10 +28,14 @@ export default function Login({navigation, user, setUser} : any) {
             "Content-type" : "application/json"
         },
         body : JSON.stringify(onSubmit())
-    }).then((response : Response) => {
-        
+    }).then(async (response : Response) => {
+        let res : number = await response.status;
+        if(res === 200) {
+            setUser(username);
+            setIsLogged(true)
+        }
+        else setIsLogged(false);
     })
-    
     return (
         <View style={style.body}>
             <ImageBackground source={require('../img/wavec.png')} style={style.backi}>
@@ -47,7 +51,7 @@ export default function Login({navigation, user, setUser} : any) {
                     <Pressable style={style.logbtnf}><FontAwesomeIcon icon={faFacebook} color="white" size={30}></FontAwesomeIcon></Pressable>
                     <Pressable style={style.logbtnm}><FontAwesomeIcon icon={faTwitter} color="white" size={30}></FontAwesomeIcon></Pressable>
                 </View>
-                <Text onPress={() => navigation.navigate('Signup')} style={style.signuptext}>Don't have an account? Sign Up</Text>
+                <Text onPress={() => {if(isLogged) navigation.navigate('Signup')}} style={style.signuptext}>Don't have an account? Sign Up</Text>
             </View>
         </View>
     )

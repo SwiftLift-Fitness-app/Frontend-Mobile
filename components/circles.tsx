@@ -8,6 +8,7 @@ import { faDumbbell, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { NavProp } from "../navigationProps";
 import { NavigateProps } from "react-router-dom";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { faAppleWhole } from "@fortawesome/free-solid-svg-icons";
 
 interface VisibilityProp {
     visible: boolean,
@@ -20,7 +21,7 @@ export default function Circles({visible, menu} : VisibilityProp) {
         return (
             <View id="wrapper" style={style.circles_wrapper}>
                 <Pressable id="circle-diets" style={style.circle_diets} onPress={() => {menu.navigate('Diets')}}>
-                    <FontAwesomeIcon icon={faApple} color='white' size={30}></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faAppleWhole} color='white' size={30}></FontAwesomeIcon>
                 </Pressable>
                 <Pressable id="circle-programs" style={style.circle_progs} onPress={() => {menu.navigate('Programs')}}>
                     <FontAwesomeIcon icon={faDumbbell} color='white' size={35}></FontAwesomeIcon>

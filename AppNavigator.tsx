@@ -37,18 +37,34 @@ export default function AppNavigator() {
             <Stack.Screen name='Results' component={Results} options={{headerShown: false}}/>
             <Stack.Screen name='Signup' component={SignUp} options={{headerShown: false}}/>
             <Stack.Screen name='Index' options={{headerShown: false}}>
-                {props => <Index {...props}></Index>}
+                {props => <Index {...props} user={user}></Index>}
             </Stack.Screen>
             <Stack.Screen name='Stats' component={Stats} options={{headerShown: false}}/>
-            <Stack.Screen name='Programs' component={Programs} options={{headerShown: false}}/>
+            <Stack.Screen name='Programs' options={{headerShown: false}}>
+                {props => <Programs {...props}></Programs>}
+            </Stack.Screen>
             <Stack.Screen name='Session' component={SessionPage}  options={{headerShown: false}}/>
-            <Stack.Screen name='Survey' component={Survey}  options={{headerShown: false}}/>
-            <Stack.Screen name='Diets' component={Diets} options={{headerShown: false}}/>
-            <Stack.Screen name='ExerciseBuilder' component={ExerciseBuilderPage} options={{headerShown: false}}/>
-            <Stack.Screen name='DietBuilder' component={DietBuilderPage} options={{headerShown: false}}/>
-            <Stack.Screen name='Profile' component={Profile} options={{headerShown: false}}/>
-            <Stack.Screen name='EditPrograms' component={EditExercisePage} options={{headerShown: false}}/>
-            <Stack.Screen name='EditDiets' component={EditDietPage} options={{headerShown: false}}/>
+            <Stack.Screen name='Survey' options={{headerShown: false}}>
+                {props => <Survey {...props} user={user}></Survey>}
+            </Stack.Screen>
+            <Stack.Screen name='Diets' options={{headerShown: false}}>
+                {props => <Diets {...props}></Diets>}
+            </Stack.Screen>
+            <Stack.Screen name='ExerciseBuilder' options={{headerShown: false}}>
+                {props => <ExerciseBuilderPage {...props}></ExerciseBuilderPage>}
+            </Stack.Screen>
+            <Stack.Screen name='DietBuilder' options={{headerShown: false}}>
+                {props => <DietBuilderPage {...props}></DietBuilderPage>}
+            </Stack.Screen>
+            <Stack.Screen name='Profile' options={{headerShown: false}}>
+                {props => <Profile {...props}></Profile>}
+            </Stack.Screen>
+            <Stack.Screen name='EditPrograms' options={{headerShown: false}}>
+                {props => <EditExercisePage {...props}></EditExercisePage>}
+            </Stack.Screen>
+            <Stack.Screen name='EditDiets' options={{headerShown: false}}>
+                {props => <EditDietPage {...props}></EditDietPage>}
+            </Stack.Screen>
             <Stack.Screen name='DietsWithPop' component={DietsWithPop} options={{headerShown: false}}/>
         </Stack.Navigator>
     )

@@ -113,11 +113,33 @@ export default function DietTab({progress, meals, navigation, user} : DietTabPro
             borderRadius: 6
         }
     })
+
+    interface IndexDietTabResponse {
+        progress : number,
+        goal : number,
+        data : Array<number>
+    }
+
+    let jsonData : IndexDietTabResponse = {
+        progress : 81,
+        goal : 2500,
+        data : [100, 445, 250, 251, 60, 120, 100, 40]
+    }
+
+    fetch("http://localhost:8080/diets/today", {
+        method : "GET",
+        body : JSON.stringify({
+            username : user
+        })
+    }).then(async (response : Response) => {
+        jsonData = await response.json();
+    });
+
     return (
         <View style={style.container}>
             <View style={style.progress_wrapper}>
                 <View style={style.progress_bar}>
-                    <Text style={style.progress_text}>{Math.floor(progress/100*2500)} / 2500</Text>
+                    <Text style={style.progress_text}>{Math.floor(jsonData.progress/100*2500)} / {jsonData.goal}</Text>
                     <Text style={style.progress_text}>{progress}%</Text>
                 </View>
             </View>
@@ -129,23 +151,23 @@ export default function DietTab({progress, meals, navigation, user} : DietTabPro
                 </View>
                 <View style={style.table_row}>
                     <Text style={style.white_text}><FontAwesomeIcon icon={faPizzaSlice} color="white"></FontAwesomeIcon></Text>
-                    <Text style={style.white_text}>100g</Text>
-                    <Text style={style.white_text}>445</Text>
+                    <Text style={style.white_text}>{jsonData.data[0]}</Text>
+                    <Text style={style.white_text}>{jsonData.data[1]}</Text>
                 </View>
                 <View style={style.table_row}>
                     <Text style={style.white_text}><FontAwesomeIcon icon={faFish} color="white"></FontAwesomeIcon></Text>
-                    <Text style={style.white_text}>250g</Text>
-                    <Text style={style.white_text}>251</Text>
+                    <Text style={style.white_text}>{jsonData.data[2]}</Text>
+                    <Text style={style.white_text}>{jsonData.data[3]}</Text>
                 </View>
                 <View style={style.table_row}>
                     <Text style={style.white_text}><FontAwesomeIcon icon={faCheese} color="white"></FontAwesomeIcon></Text>
-                    <Text style={style.white_text}>60g</Text>
-                    <Text style={style.white_text}>120</Text>
+                    <Text style={style.white_text}>{jsonData.data[4]}</Text>
+                    <Text style={style.white_text}>{jsonData.data[5]}</Text>
                 </View>
                 <View style={style.table_row}>
                     <Text style={style.white_text}><FontAwesomeIcon icon={faAppleWhole} color="white"></FontAwesomeIcon></Text>
-                    <Text style={style.white_text}>100g</Text>
-                    <Text style={style.white_text}>40</Text>
+                    <Text style={style.white_text}>{jsonData.data[6]}</Text>
+                    <Text style={style.white_text}>{jsonData.data[7]}</Text>
                 </View>
             </View>
             <View style={style.buttons}>

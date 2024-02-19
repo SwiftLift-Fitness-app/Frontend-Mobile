@@ -27,7 +27,7 @@ export const ExerciseBuilder = React.forwardRef((ref : any) => {
         ]
     };
 
-    fetch('http://localhost/exercises/all', {
+    fetch('http://localhost:8080/exercises/all', {
         method: "GET"
     }).then(async (response: Response) => {
         jsonDataString = await response.text();
@@ -35,7 +35,7 @@ export const ExerciseBuilder = React.forwardRef((ref : any) => {
     })
 
     let exerciseItems : Array<Element> = [];
-    let refArray : Array<any> = [];
+    let refArray : React.MutableRefObject<any>[] = [];
 
     jsonData.exercises.forEach(ex => {
         const childRef = useRef({});

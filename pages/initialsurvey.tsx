@@ -10,11 +10,12 @@ import RadioGroup from 'react-native-radio-buttons-group';
 
 //user logged state should be kept in the AppNavigator
 interface SurveyProp {
-    navigation : StackNavigationProp<any>
+    navigation : StackNavigationProp<any>,
+    user : string
 //  user : string
 }
 
-export default function Survey({navigation} : SurveyProp) {
+export default function Survey({navigation, user} : SurveyProp) {
 
     const [stage, setStage] = useState(1);
     const [age, setAge] = useState(12);
@@ -29,12 +30,12 @@ export default function Survey({navigation} : SurveyProp) {
 
     function prepareJSON() {
         let g = ""
-        if(gender === '1') g='male';
-        else if(gender === '2') g='female';
-        else g='other'
+        if(gender === '1') g='m';
+        else if(gender === '2') g='f';
+        else g='o'
 
         const json : Object = {
-            user : "someone",
+            user : user,
             age : age,
             gender : g,
             weight : weight,
@@ -158,7 +159,7 @@ export default function Survey({navigation} : SurveyProp) {
                 </View>
                 <View style={style.buttongrp}>
                     <SurveyButton setStage={setStage} stage={2} text="Back"/>
-                    <SubmitButton navigateTo="Index" navigation={navigation} json={prepareJSON}/>
+                    <SubmitButton user={user} navigateTo="Index" navigation={navigation} json={prepareJSON}/>
                 </View>
                 <ProgressBar prog={0.99}/>
             </View>
@@ -175,7 +176,8 @@ interface SurveyButtonProps {
 interface SubmitButtonProps {
     navigateTo : string,
     navigation : StackNavigationProp<any>,
-    json : Object
+    json : Object,
+    user : string
 }
 
 export function SurveyButton({setStage, stage, text} : SurveyButtonProps) {
@@ -202,11 +204,11 @@ export function SurveyButton({setStage, stage, text} : SurveyButtonProps) {
     )
 }
 
-export function SubmitButton({navigateTo, navigation, json} : SubmitButtonProps) {
+export function SubmitButton({navigateTo, navigation, json, user} : SubmitButtonProps) {
 
     function sendJSON() {
-        fetch("http://localhost/survey", {
-            method : "POST",
+        fetch(`http://localhost/users/survey`, {
+            method : "PATCH",
             body : JSON.stringify(json),
             headers : {
                 "Content-type" : "application/json"

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable, Dimensions } from "react-native";
 import WeekDays from "./weekdaystray";
 
-export default function ExerciseTab({navigation} : any) {
+export default function ExerciseTab({navigation, user} : any) {
 
 
     const vw = Dimensions.get('window').width;
@@ -69,19 +69,41 @@ export default function ExerciseTab({navigation} : any) {
     },
   });
 
-  const exercises = [
-    { name: 'Push-ups', duration: '5 minutes' },
-    { name: 'Squats', duration: '10 minutes' },
-    { name: 'Plank', duration: '3 minutes' },
+  let exercises = [
+    { name: 'Push-ups', sets: '5 sets' },
+    { name: 'Squats', sets: '10 sets' },
+    { name: 'Plank', sets: '3 sets' },
   ];
 
+  interface Exerc {
+      name : string,
+      sets : string
+  }
+
+  interface Get {
+      exercises : Array<Exerc>
+  }
+
+  let json : Get = {
+    exercises : []
+  }
+
+  fetch("http://localhost:8080/exercises/today", {
+      method : "GET",
+      body : JSON.stringify({
+          username : user
+      })
+  }).then(async (response : Response) => {
+      json = await response.json();
+      exercises = json.exercises;
+  })
   return (
     <View style={styles.container}>
       <Text style={styles.top_bar}>Exercises for today</Text>
       {exercises.map((exercise, index) => (
         <View key={index} style={styles.exerciseItem}>
           <Text style={styles.exerciseName}>{exercise.name}</Text>
-          <Text style={styles.exerciseDuration}>{exercise.duration}</Text>
+          <Text style={styles.exerciseDuration}>{exercise.sets}</Text>
         </View>
       ))}
       <WeekDays days={[true, false, true, true, false, false, true]}></WeekDays>
