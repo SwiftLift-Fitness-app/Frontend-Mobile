@@ -1,6 +1,7 @@
 import React, { useRef, forwardRef, useImperativeHandle, RefObject } from "react";
 import { View, StyleSheet } from "react-native";
 import { ExerciseItem } from "./exerciseitem";
+import image1 from '../img/push-up.png';
 
 interface ExerciseItemResponse {
     name : string,
@@ -19,8 +20,8 @@ export const ExerciseBuilder = React.forwardRef((ref : any) => {
     let jsonData : ExerciseBuilderJsonResponse = {
         exercises : [
             {
-                name : 'Sample',
-                image : 'th',
+                name : 'Push up',
+                image : image1,
                 description : 'Hi',
                 muscles : ['Chest', 'Back']                
             }
@@ -38,28 +39,27 @@ export const ExerciseBuilder = React.forwardRef((ref : any) => {
     let refArray : React.MutableRefObject<any>[] = [];
 
     jsonData.exercises.forEach(ex => {
-        const childRef = useRef({});
+        const childRef : React.MutableRefObject<any> = useRef({});
         refArray.push(childRef);
     })
 
     console.log("######REF :: " + refArray[0])
 
-    useImperativeHandle(ref, () => {
-        return {
-        sendCurrentConf() {
+    function sendCurrentConf() {
 
-            let objArr : Array<Object> = [];
-            refArray.forEach(child => {
-                objArr.push(child.current.sendCurrentDataPackage());
-            })
+        let objArr : Array<Object> = [];
+        refArray.forEach(child => {
+            objArr.push(child.current.sendCurrentDataPackage()); //problem
+        })
 
-            return objArr
-        }
+        return objArr
     }
-    })
+    /*useImperativeHandle(ref, () => {
+        return sendCurrentConf;
+    }) */
 
     for(let i=0; i<jsonData.exercises.length; i++) {
-        exerciseItems.push(<ExerciseItem key={i} image="/" name={jsonData.exercises[i].name} description={jsonData.exercises[i].description} muscles={['']} isEdit={false} removeFunc={""} ref={refArray[i]}/>)
+        exerciseItems.push(<ExerciseItem key={i} image={image1} name={jsonData.exercises[i].name} description={jsonData.exercises[i].description} muscles={["Chest"]} isEdit={false} removeFunc={""} ref={refArray[i]}/>)
     }
     
     return <>{exerciseItems}</>;

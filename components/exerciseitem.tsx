@@ -6,6 +6,7 @@ import AddRemove from "./addremove";
 import { faRemove } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useRef, forwardRef, useImperativeHandle } from "react";
+import image1 from '../img/push-up.png';
 
 interface ExerciseItemProps {
     image : string,
@@ -22,7 +23,7 @@ const vh = Dimensions.get('window').height;
 export const style = StyleSheet.create({
     wrapper: {
         width: vw,
-        height: 0.15*vw,
+        height: 125,
         backgroundColor: 'gray',
         borderRadius: 10,
         display: 'flex',
@@ -46,8 +47,8 @@ export const style = StyleSheet.create({
         flexWrap: 'wrap'
     },
     addr_wrapper: {
-        height: 0.15*vw,
-
+        height: 125,
+        
     },
     removebtn : {
         height : 0.05*vw,
@@ -102,7 +103,7 @@ export const ExerciseItem = React.forwardRef(({image, name, description, muscles
             <Pressable onPress={removeFunc} style={style.removebtn}>
                 <FontAwesomeIcon icon={faRemove} color="red"></FontAwesomeIcon>
             </Pressable>
-                <Image source={{uri : image}} style={style.image}/>
+                <Image source={{uri : image1}} style={style.image}/>
                 <View style={style.info}>
                     <Text>{name}</Text>
                     <View style={style.tags_wrapper}>

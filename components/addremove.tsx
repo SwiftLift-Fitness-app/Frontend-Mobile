@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Pressable } from "react-native";
-import { Text } from "react-native-svg";
+import { View, StyleSheet, Pressable, Text } from "react-native";
 
 interface AddRemoveProps {
     amount: number,
@@ -15,20 +14,23 @@ export default function AddRemove({amount, label, setAmount} : AddRemoveProps) {
     const style = StyleSheet.create({
         wrapper: {
             width: 100,
-            height: 30,
+            height: 20,
             display: 'flex',
             flexDirection: 'row',
             gap: 3
         },
         button: {
-            width: 30,
-            height: 30,
+            width: 20,
+            height: 20,
             borderRadius: 5,
-            backgroundColor: 'gray',
+            backgroundColor: 'lightgray',
+            display : 'flex',
+            justifyContent : 'center',
+            alignItems : 'center'
         },
         display: {
-            width: 30,
-            height: 30,
+            width: 20,
+            height: 20,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
@@ -51,13 +53,13 @@ export default function AddRemove({amount, label, setAmount} : AddRemoveProps) {
             <Text>{label}</Text>
             <View style={style.wrapper}>
                 <Pressable style={style.button} onPress={increase}>
-                    <Text>+</Text>
+                    <Text style={style.display_text}>+</Text>
                 </Pressable>
                 <View style={style.display}>
                     <Text>{amount}</Text>
                 </View>
                 <Pressable style={style.button} onPress={decrease}>
-                    <Text>-</Text>
+                    <Text style={style.display_text}>-</Text>
                 </Pressable>
             </View>
         </>

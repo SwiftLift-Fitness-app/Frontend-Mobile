@@ -33,19 +33,20 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
         }
     })
 
-    let ref = useRef();
 
     if(type === "diet") {
+        let ref : React.MutableRefObject<any> = useRef();
         return (
             <View style={style.container}>
                 <DietBuilder ref={ref}/>
                 <View style={style.buttongrp}>
                     <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Diets"/>
-                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Diets"/>
+                    <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Diets"  object={ref.current.sendCurrentConf()}/>
                 </View>
             </View>
         )
     } else if (type === "exercise") {
+        let ref : React.MutableRefObject<any> = useRef({});
         return (
             <View style={style.container}>
                 <ExerciseBuilder ref={ref}/>
@@ -56,12 +57,13 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
             </View>
         )
     } else if (type === "edit") {
+        let ref : React.MutableRefObject<any> = useRef();
         return (
             <View style={style.container}>
             <ExerciseBuilder ref={ref}/>
             <View style={style.buttongrp}>
                 <BuilderWrapperButton text="Cancel" navigation={navigation} navigateTo="Programs"/>
-                <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs"/>
+                <BuilderWrapperButton text="Ok" navigation={navigation} navigateTo="Programs" object={ref.current.sendCurrentConf()}/>
             </View>
         </View>
         )
@@ -71,24 +73,29 @@ export default function BuilderWrapper({type, navigation} : BuilderWrapperProp) 
 interface BuilderWrapperButtonProps {
     navigateTo : string,
     text : string,
-    navigation : StackNavigationProp<any>
+    navigation : StackNavigationProp<any>,
+    object? : object
 }
 
-export function BuilderWrapperButton({navigateTo, text, navigation} : BuilderWrapperButtonProps) {
+export function BuilderWrapperButton({navigateTo, text, navigation, object} : BuilderWrapperButtonProps) {
     const style = StyleSheet.create({
         btn : {
             width : 70,
             height : 40,
-            backgroundColor : 'blue',
+            backgroundColor : '#5179bd',
             display : 'flex',
             justifyContent : 'center',
-            alignItems : 'center'
+            alignItems : 'center',
+            borderRadius : 10
+        },
+        text : {
+            color : 'white'
         }
     })
 
     return (
         <Pressable style={style.btn} onPress={() => navigation.navigate(navigateTo)}>
-            <Text>{text}</Text>
+            <Text style={style.text}>{text}</Text>
         </Pressable>
     )
 }
